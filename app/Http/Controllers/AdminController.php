@@ -42,7 +42,23 @@ class AdminController extends Controller
 
     public function AdminRegisterCreate(Request $request){
         //dd($request->all());
-
+        $eiin = $request->eiin;
+        $email = $request->email;
+        $check = Admin::where('eiin',$eiin)->where('email',$email)->first();
+        if($check){
+            return back()->with('error','Admin Already Exist');
+        }
+        else{
+            Admin::create([
+                'name' => $request->name,
+                'eiin' => $request->eiin,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'created_at' => Carbon::now(),
+            ]);
+            return redirect()->route('login_from')->with('error','Admin Created Successfully');
+        }
+/*
         Admin::create([
             'name' => $request->name,
             'eiin' => $request->eiin,
@@ -51,6 +67,7 @@ class AdminController extends Controller
             'created_at' => Carbon::now(),
         ]);
         return redirect()->route('login_from')->with('error','Admin Created Successfully');
+        */
     }
 
 }
