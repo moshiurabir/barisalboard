@@ -131,6 +131,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
           @endif
+
+          @if($errors->any())
+           @foreach($errors->all() as $error)
+          <div class="alert alert-danger fade show" role="alert">
+         {{ $error }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endforeach
+      @endif
+
               <form class="mb-3" action="{{ route('admin.register.create') }}" method="POST">
                 @csrf
                 <div class="mb-3">

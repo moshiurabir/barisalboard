@@ -50,8 +50,8 @@ class AdminController extends Controller
 
         $this->validate($request, [
             'name' => 'required|min:3|max:50',
-            'email' => 'email',
-            'eiin' => 'max:6',
+            'email' => 'required|email',
+            'eiin' => 'required|max:6',
             'password' => 'required|confirmed|min:6|required_with:password_confirmation|same:password_confirmation',
             'password_confirmation' => 'min:6'
         ]);
