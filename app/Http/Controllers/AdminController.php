@@ -56,7 +56,7 @@ class AdminController extends Controller
             'password_confirmation' => 'min:6'
         ]);
 
-        $check = Admin::where('eiin',$eiin)->where('email',$email)->first();
+        $check = Admin::where('eiin',$eiin)->orwhere('email',$email)->first();
         if($check){
             return back()->with('error','Admin Already Exist');
         }
