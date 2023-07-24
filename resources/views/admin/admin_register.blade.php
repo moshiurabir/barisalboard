@@ -132,6 +132,7 @@
           </div>
           @endif
 
+          <!--
           @if($errors->any())
            @foreach($errors->all() as $error)
           <div class="alert alert-danger fade show" role="alert">
@@ -140,10 +141,12 @@
       </div>
       @endforeach
       @endif
+    -->
 
               <form class="mb-3" action="{{ route('admin.register.create') }}" method="POST">
                 @csrf
                 <div class="mb-3">
+
                     <label for="name" class="form-label">Name</label>
                     <input
                       type="text"
@@ -152,6 +155,9 @@
                       placeholder="Enter your Name"
                       autofocus
                     />
+                    @error('name')
+                    <div class="error">{{ $message }}</div>
+                @enderror
                   </div>
                 <div class="mb-3">
                   <label for="eiin" class="form-label">EIIN</label>
@@ -162,10 +168,16 @@
                     placeholder="Enter your EIIN"
                     autofocus
                   />
+                  @error('eiin')
+                  <div class="error">{{ $message }}</div>
+              @enderror
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input type="text" class="form-control" name="email" placeholder="Enter your email" />
+                  @error('email')
+                  <div class="error">{{ $message }}</div>
+              @enderror
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <label class="form-label" for="password">Password</label>
@@ -173,7 +185,11 @@
                     <input type="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password"
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+
                   </div>
+                  @error('password')
+                    <div class="error">{{ $message }}</div>
+                @enderror
                 </div>
                 <div class="mb-3 form-password-toggle">
                     <label class="form-label" for="password">Re-Type Password</label>
@@ -181,6 +197,9 @@
                       <input type="password" class="form-control" name="password_confirmation" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password"
                       />
                       <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                      @error('password_confirmation')
+                    <div class="error">{{ $message }}</div>
+                @enderror
                     </div>
                   </div>
                 <div class="mb-3">
