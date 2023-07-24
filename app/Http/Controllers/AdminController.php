@@ -42,8 +42,20 @@ class AdminController extends Controller
 
     public function AdminRegisterCreate(Request $request){
         //dd($request->all());
+        $name = $request->name;
         $eiin = $request->eiin;
         $email = $request->email;
+        $password = $request->password;
+
+
+        $this->validate($request, [
+            'name' => 'required|min:3|max:50',
+            'email' => 'email',
+            'eiin' => 'max:6',
+            'password' => 'required|confirmed|min:6|required_with:password_confirmation|same:password_confirmation',
+            'password_confirmation' => 'min:6'
+        ]);
+
         $check = Admin::where('eiin',$eiin)->where('email',$email)->first();
         if($check){
             return back()->with('error','Admin Already Exist');

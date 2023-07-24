@@ -119,13 +119,18 @@
                       </g>
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                  <span class="app-brand-text demo text-body fw-bolder">BISEB</span>
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Adventure starts here 🚀</h4>
-              <p class="mb-4">Make your app management easy and fun!</p>
+              <h4 class="mb-2">Institute Admin Registion Form</h4>
 
+              @if(Session::has('error'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+             <strong>{{ Session::get('error') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
               <form class="mb-3" action="{{ route('admin.register.create') }}" method="POST">
                 @csrf
                 <div class="mb-3">
