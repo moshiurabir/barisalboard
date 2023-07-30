@@ -1,5 +1,4 @@
-@extends('admin.admin_master')
-@section('menu')
+
  <!-- Menu -->
 
  <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
@@ -394,4 +393,3 @@
     </ul>
   </aside>
   <!-- / Menu -->
-  @endsection

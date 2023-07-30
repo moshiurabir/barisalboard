@@ -216,7 +216,7 @@
 
               <p class="text-center">
                 <span>Already have an account?</span>
-                <a href="">
+                <a href="{{ route('admin.login') }}">
                   <span>Sign in instead</span>
                 </a>
               </p>
@@ -229,14 +229,14 @@
 
     <!-- / Content -->
 
-    <div class="buy-now">
+    <!--div class="buy-now">
       <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
+        href="#"
         target="_blank"
         class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
+        >Popup Message</a
       >
-    </div>
+    </!--div-->
 
 <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js') }} -->
@@ -259,6 +259,5 @@
     <script async defer src="https://buttons.github.io/buttons.js') }}"></script>
   </body>
 </html>
-
 
 
