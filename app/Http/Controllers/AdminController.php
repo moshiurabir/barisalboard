@@ -12,7 +12,12 @@ class AdminController extends Controller
 {
     //
     public function Index(){
-        return view('admin.admin_login');
+        if(! \Auth::guard('admin')->check()){
+
+            return view('admin.admin_login');
+
+        }
+        return redirect()->route('admin.dashboard');
 
     }
     public function Dashboard(){
