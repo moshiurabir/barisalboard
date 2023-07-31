@@ -12,7 +12,7 @@ class AdminController extends Controller
 {
     //
     public function Index(){
-        if(! \Auth::guard('admin')->check()){
+        if(!Auth::guard('admin')->check()){
 
             return view('admin.admin_login');
 
