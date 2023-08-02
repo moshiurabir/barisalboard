@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,25 +20,20 @@ Route::get('/', function () {
 });
 
 /* -----admin Route----- */
-Route::prefix('admin')->group(function (){
+Route::prefix('admin')->group(function () {
     //Route::get('/',[AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('auth:admin');
-    Route::get('/login',[AdminController::class, 'Index'])->name('login_from');
+    Route::get('/login', [AdminController::class, 'Index'])->name('login_from');
 
-    Route::post('/login',[AdminController::class, 'Login'])->name('admin.login');
+    Route::post('/login', [AdminController::class, 'Login'])->name('admin.login');
 
-
-
-
-    Route::get('/dashboard',[AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin:admin');
-    Route::get('/logout',[AdminController::class, 'AdminLogout'])->name('admin.logout')->middleware('admin');
-   // Route::get('/dashboard',[AdminController::class, 'Dashboard'])->name('admin.dashboard');
-   Route::get('/register',[AdminController::class, 'AdminRegister'])->name('admin.register');
-   Route::post('/register/create',[AdminController::class, 'AdminRegisterCreate'])->name('admin.register.create');
+    Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('admin:admin');
+    Route::get('/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout')->middleware('admin');
+    // Route::get('/dashboard',[AdminController::class, 'Dashboard'])->name('admin.dashboard');
+    Route::get('/register', [AdminController::class, 'AdminRegister'])->name('admin.register');
+    Route::post('/register/create', [AdminController::class, 'AdminRegisterCreate'])->name('admin.register.create');
 
 });
 /* -----End admin Route----- */
-
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');
