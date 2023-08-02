@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2023 at 12:02 PM
+-- Generation Time: Aug 02, 2023 at 01:30 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -101,7 +101,7 @@ CREATE TABLE `admins` (
 
 INSERT INTO `admins` (`id`, `name`, `subdomain`, `eiin`, `institutename`, `institute_established_date`, `email`, `email_verified_at`, `district`, `t_code`, `c_code`, `s_code`, `postoffice`, `upazilla`, `zilla`, `institution_type`, `institution_type_details`, `head_institution`, `mobile`, `head_institution_sign`, `template_isadmin`, `ssc_science_permission`, `ssc_science_seat`, `ssc_science_permission_expiredate`, `ssc_humanities_permission`, `ssc_humanities_seat`, `ssc_humanities_permission_expiredate`, `ssc_businessstudies_permission`, `ssc_businessstudies_seat`, `ssc_businessstudies_permission_expiredate`, `hsc_science_permission`, `hsc_science_seat`, `hsc_science_permission_expiredate`, `hsc_humanities_permission`, `hsc_humanities_seat`, `hsc_humanities_permission_expiredate`, `hsc_businessstudies_permission`, `hsc_businessstudies_seat`, `hsc_businessstudies_permission_expiredate`, `hsc_homeeconomics_permission`, `hsc_homeeconomics_seat`, `hsc_homeeconomics_permission_expiredate`, `hsc_agriculture_permission`, `hsc_agriculture_seat`, `hsc_agriculture_permission_expiredate`, `hsc_islamicstudies_permission`, `hsc_islamicstudies_seat`, `hsc_islamicstudies_permission_expiredate`, `hsc_music_permission`, `hsc_music_seat`, `hsc_music_permission_expiredate`, `jsc_sad`, `ssc_sad`, `ssc_eff_sad`, `ssc_teacher_sad`, `ssc_payment_permission`, `hsc_sad`, `hsc_eff_sad`, `hsc_teacher_sad`, `hsc_payment_permission`, `password`, `notes`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', '', '102477', '', '0000-00-00', 'admin2@localhost.com', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '$2y$10$z53eKnEEJuzTp2Eqb4k5iOiooGsO4Llf9BXnO4t5e0TKvwbyYmPg2', '', '1', NULL, NULL),
-(3, 'Md Moshiur abir', NULL, '102598', NULL, NULL, 'admin@localhost.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$CgK4i.kEsbss3dhLdggdZexGJaURMd6FekozscbRvU6s/VEdjbbH.', NULL, '1', '2023-07-22 22:01:59', '2023-07-22 22:01:59');
+(3, 'Md Moshiur abir', NULL, '102598', NULL, NULL, 'admin@localhost.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$CgK4i.kEsbss3dhLdggdZexGJaURMd6FekozscbRvU6s/VEdjbbH.', NULL, '1', '2023-07-22 16:01:59', '2023-07-22 16:01:59');
 
 -- --------------------------------------------------------
 
@@ -136,11 +136,11 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(6, '2023_07_21_150626_create_admins_table', 2);
+(7, '2014_10_12_000000_create_users_table', 1),
+(8, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+(9, '2019_08_19_000000_create_failed_jobs_table', 1),
+(10, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(11, '2023_07_21_150626_create_admins_table', 1);
 
 -- --------------------------------------------------------
 
@@ -182,9 +182,21 @@ CREATE TABLE `personal_access_tokens` (
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
+  `designation` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
+  `is_admin` varchar(255) DEFAULT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  `section` varchar(255) DEFAULT NULL,
+  `section_id` varchar(255) DEFAULT NULL,
+  `section_department` varchar(255) DEFAULT NULL,
+  `mobile` varchar(255) DEFAULT NULL,
+  `sign` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -194,8 +206,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'user@localhost.com', NULL, '$2y$10$z53eKnEEJuzTp2Eqb4k5iOiooGsO4Llf9BXnO4t5e0TKvwbyYmPg2', NULL, '2023-07-20 11:02:17', '2023-07-20 11:02:17');
+INSERT INTO `users` (`id`, `name`, `designation`, `username`, `email`, `email_verified_at`, `password`, `is_admin`, `role`, `section`, `section_id`, `section_department`, `mobile`, `sign`, `photo`, `note`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Md Moshiur abir', NULL, NULL, 'user@localhost.com', NULL, '$2y$10$nCtNjloCo02QzDHSjP/a2uLUqYoSHHWnMfMA4K90a8XU6K2uIu7US', NULL, NULL, NULL, NULL, NULL, '01711469894', NULL, NULL, NULL, 'active', NULL, '2023-08-02 05:09:26', '2023-08-02 05:09:26');
 
 --
 -- Indexes for dumped tables
@@ -263,7 +275,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
