@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 /* -----admin Route----- */
 Route::prefix('admin')->group(function () {
-    //Route::get('/',[AdminController::class, 'Dashboard'])->name('admin.dashboard')->middleware('auth:admin');
+    Route::get('/',[AdminController::class, 'Index'])->name('login_from');
     Route::get('/login', [AdminController::class, 'Index'])->name('login_from');
 
     Route::post('/login', [AdminController::class, 'Login'])->name('admin.login');
