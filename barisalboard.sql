@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 02, 2023 at 01:30 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.1.17
+-- Host: localhost
+-- Generation Time: Oct 24, 2023 at 01:15 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -207,7 +207,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `designation`, `username`, `email`, `email_verified_at`, `password`, `is_admin`, `role`, `section`, `section_id`, `section_department`, `mobile`, `sign`, `photo`, `note`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Md Moshiur abir', NULL, NULL, 'user@localhost.com', NULL, '$2y$10$nCtNjloCo02QzDHSjP/a2uLUqYoSHHWnMfMA4K90a8XU6K2uIu7US', NULL, NULL, NULL, NULL, NULL, '01711469894', NULL, NULL, NULL, 'active', NULL, '2023-08-02 05:09:26', '2023-08-02 05:09:26');
+(1, 'Md Moshiur abir', NULL, NULL, 'user@localhost.com', NULL, '$2y$10$nCtNjloCo02QzDHSjP/a2uLUqYoSHHWnMfMA4K90a8XU6K2uIu7US', NULL, 'admin', NULL, NULL, NULL, '01711469894', NULL, NULL, NULL, 'active', NULL, '2023-08-02 05:09:26', '2023-08-02 05:09:26'),
+(2, 'Md Mamun Hossain', NULL, NULL, 'user1@localhost.com', NULL, '$2y$10$nCtNjloCo02QzDHSjP/a2uLUqYoSHHWnMfMA4K90a8XU6K2uIu7US', NULL, 'accounts', NULL, NULL, NULL, '01711469895', NULL, NULL, NULL, 'active', NULL, '2023-08-02 05:09:26', '2023-08-02 05:09:26'),
+(3, 'Md User', NULL, NULL, 'user2@localhost.com', NULL, '$2y$10$nCtNjloCo02QzDHSjP/a2uLUqYoSHHWnMfMA4K90a8XU6K2uIu7US', NULL, 'user', NULL, NULL, NULL, '01711469896', NULL, NULL, NULL, 'active', NULL, '2023-08-02 05:09:26', '2023-08-02 05:09:26'),
+(4, 'Arun Kumar Gyan', NULL, NULL, 'user3@localhost.com', NULL, '$2y$10$nCtNjloCo02QzDHSjP/a2uLUqYoSHHWnMfMA4K90a8XU6K2uIu7US', NULL, 'exam', NULL, NULL, NULL, '01711469895', NULL, NULL, NULL, 'active', NULL, '2023-08-02 05:09:26', '2023-08-02 05:09:26');
 
 --
 -- Indexes for dumped tables
@@ -287,7 +290,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
