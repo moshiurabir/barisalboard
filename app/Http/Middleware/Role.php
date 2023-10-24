@@ -17,12 +17,25 @@ class Role
     {
         if($request->user()->role !== $role)
         {
-            return redirect('dashboard');
+            //return redirect('dashboard');
+            if($request->user()->role === 'admin')
+            {
+                return redirect('boardcp/dashboard');
+            }
+            elseif($request->user()->role === 'accounts')
+            {
+                return redirect('accountscp/dashboard');
+            }
+            elseif($request->user()->role === 'exam')
+            {
+                return redirect('examcp/dashboard');
+            }
+            elseif($request->user()->role === 'user')
+            {
+                return redirect('dashboard');
+            }
         }
-        if($request->user()->role === $role)
-        {
-            return $next($request);
-        }
+
 
         return $next($request);
     }
