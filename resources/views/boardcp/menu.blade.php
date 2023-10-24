@@ -7,7 +7,7 @@
             <span class="app-brand-logo demo">
               <img src="{{ asset('assets/img/logo/logo.gif') }}" alt="logo" width="60" height="55">
             </span>
-<span class="app-brand-text">Institute Panel</span>
+<span class="app-brand-text">Admin Panel</span>
           </a>
 
       <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
