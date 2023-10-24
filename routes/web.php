@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ExamcpController;
+use App\Http\Controllers\BoardcpController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AccountscpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +49,21 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+Route::middleware('auth', 'role:admin')->group(function () {
+    Route::get('/boardcp/dashboard', [BoardcpController::class, 'BoardcpDashboard'])->name('boardcp.dashboard');
+    Route::get('/boardcp/logout', [BoardcpController::class, 'BoardcpLogout'])->name('boardcp.logout');
+
+});
+
+Route::middleware('auth', 'role:accounts')->group(function () {
+    Route::get('/accountscp/dashboard', [AccountscpController::class, 'AccountscpDashboard'])->name('accountscp.dashboard');
+    Route::get('/accountscp/logout', [AccountscpController::class, 'AccountscpLogout'])->name('accountscp.logout');
+});
+Route::middleware('auth', 'role:exam')->group(function () {
+Route::get('/examcp/dashboard', [ExamcpController::class, 'ExamcpDashboard'])->name('examcp.dashboard');
+Route::get('/examcp/logout', [ExamcpController::class, 'ExamcpLogout'])->name('examcp.logout');
+});
+
+Route::get('/boardcp/login', [BoardcpController::class, 'BoardcpLogin'])->name('boardcp.login');
