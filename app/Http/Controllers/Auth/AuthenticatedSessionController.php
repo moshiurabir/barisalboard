@@ -31,19 +31,9 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
 
-
-
-
-
-
         $url='';
         if($request->user()->role === 'admin')
         {
-
-
-
-
-
 
                 if(session_id() != Auth::user()->last_session){
                   Auth::logout();
