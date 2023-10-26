@@ -43,7 +43,7 @@ class AuthenticatedSessionController extends Controller
 
 
 
-
+/*
 
                 if(session_id() != Auth::user()->last_session){
                   Auth::logout();
@@ -56,8 +56,8 @@ class AuthenticatedSessionController extends Controller
                 $url='boardcp/dashboard';
              }
 
-
-
+*/
+$url='boardcp/dashboard';
 
 
         }
