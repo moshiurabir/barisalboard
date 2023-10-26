@@ -45,7 +45,7 @@ class AuthenticatedSessionController extends Controller
 
 
 
-                if(session_id() != Auth::user()->last_session){
+               /* if(session_id() != Auth::user()->last_session){
                   Auth::logout();
                   return redirect('boardcp/login');
                 }
@@ -53,12 +53,12 @@ class AuthenticatedSessionController extends Controller
                 $session_id = Session::getId();
                 $request->user()->last_session = $session_id;
                 $request->user()->save();
-                $url='boardcp/dashboard';
+
              }
+*/
 
 
-
-
+$url='boardcp/dashboard';
 
         }
         elseif($request->user()->role === 'exam')
