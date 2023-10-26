@@ -18,6 +18,7 @@ class Role
         if($request->user()->role !== $role)
         {
             //return redirect('dashboard');
+
             if($request->user()->role === 'admin')
             {
                 return redirect('boardcp/dashboard');
@@ -33,6 +34,10 @@ class Role
             elseif($request->user()->role === 'user')
             {
                 return redirect('dashboard');
+            }
+            else
+            {
+                return redirect('/');
             }
         }
 

@@ -40,8 +40,8 @@ class AuthenticatedSessionController extends Controller
         if($request->user()->role === 'admin')
         {
 
-
-
+            //return redirect()->intended('boardcp/dashboard');
+            $url='boardcp/dashboard';
 
 
 
@@ -53,12 +53,12 @@ class AuthenticatedSessionController extends Controller
                 $session_id = Session::getId();
                 $request->user()->last_session = $session_id;
                 $request->user()->save();
-
+                $url='boardcp/dashboard';
              }
 */
 
 
-$url='boardcp/dashboard';
+
 
         }
         elseif($request->user()->role === 'exam')
@@ -72,6 +72,10 @@ $url='boardcp/dashboard';
         elseif($request->user()->role === 'user')
         {
             $url='/dashboard';
+        }
+        else
+        {
+            $url='/';
         }
 
 
