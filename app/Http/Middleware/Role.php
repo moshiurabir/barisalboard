@@ -35,10 +35,7 @@ class Role
             {
                 return redirect('dashboard');
             }
-            else
-            {
-                return redirect('/');
-            }
+
         }
 
 
