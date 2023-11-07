@@ -6,6 +6,7 @@ use App\Http\Controllers\ExamcpController;
 use App\Http\Controllers\BoardcpController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AccountscpController;
+use App\Http\Controllers\SscPaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/register', [AdminController::class, 'AdminRegister'])->name('admin.register');
     Route::post('/register/create', [AdminController::class, 'AdminRegisterCreate'])->name('admin.register.create');
 
+    Route::resource('sscpayment', SscPaymentController::class)->middleware('admin:admin');
 });
 /* -----End admin Route----- */
 
