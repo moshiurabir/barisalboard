@@ -12,7 +12,7 @@ class SscPaymentController extends Controller
      */
     public function index()
     {
-        echo "hello";
+       return view('adminbackend/ssc_registration/ssc_payment');
     }
 
     /**
