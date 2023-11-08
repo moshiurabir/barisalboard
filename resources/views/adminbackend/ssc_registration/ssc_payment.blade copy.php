@@ -10,19 +10,10 @@
 
        <!-- Striped Rows -->
        <div class="card">
-        <div class="demo-vertical-spacing card-header">
-            <button
-            type="button"
-            class="btn btn-primary float-end"
-            data-bs-toggle="button"
-            aria-pressed="true">
-            Add New Payment
-          </button>
-        <h5 class="card-header" >SSC eSIF Payment board </h5>
+        <h5 class="card-header">Striped rows</h5>
 
 
-
-
+        <div class="table-responsive text-nowrap">
           <table class="table table-striped">
             <thead>
               <tr>
