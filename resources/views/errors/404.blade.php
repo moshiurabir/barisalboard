@@ -1,35 +1,32 @@
 <!DOCTYPE html>
+
 <html
   lang="en"
-  class="light-style customizer-hide"
+  class="light-style layout-wide"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="{{ asset('assets/') }}"
-  data-template="vertical-menu-template-free"
->
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free">
   <head>
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Dashboard - Analytics | Board of Intermediate & Secondary Education, Barishal</title>
+    <title>Error - Pages | Board of Intermediate & Secondary Education, Barishal</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('/img/favicon/favicon.ico') }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
 
-    <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/boxicons.css') }}" />
 
     <!-- Core CSS -->
@@ -40,94 +37,60 @@
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}" />
-
     <!-- Page CSS -->
+    <!-- Page -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/page-misc.css') }}" />
 
     <!-- Helpers -->
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
-
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js') }} in the <head> section -->
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('assets/js/config.js') }}"></script>
   </head>
 
   <body>
-    <!-- Layout wrapper -->
-    <div class="layout-wrapper layout-content-navbar">
+    <!-- Content -->
 
-
-
-
-
-
-        <div class="layout-container">
-            <!-- Menu -->
-
-            @include('admin.menu')
-            <!-- / Menu -->
-
-            <!-- Layout container -->
-            <div class="layout-page">
-              <!-- Navbar -->
-              @include('admin.top_navbar')
-
-
-              <!-- / Navbar -->
-
-              <!-- Content wrapper -->
-              <div class="content-wrapper">
-
-
-
-
-
-    <div class="container-xxl flex-grow-1 container-p-y">
-      @yield('admin')
-    </div>
-    <!-- Footer -->
-       @include('admin.admin_footer')
-        <!-- / Footer -->
-
-        <div class="content-backdrop fade"></div>
+    <!-- Error -->
+    <div class="container-xxl container-p-y">
+      <div class="misc-wrapper">
+        <h2 class="mb-2 mx-2">Page Not Found :(</h2>
+        <p class="mb-4 mx-2">Oops! 😖 The requested URL was not found on this server.</p>
+        <a href="/" class="btn btn-primary">Back to home</a>
+        <div class="mt-3">
+          <img
+            src="{{ asset('assets/img/illustrations/page-misc-error-light.png') }}"
+            alt="page-misc-error-light"
+            width="500"
+            class="img-fluid"
+            data-app-dark-img="illustrations/page-misc-error-dark.png') }}"
+            data-app-light-img="illustrations/page-misc-error-light.png') }}" />
+        </div>
       </div>
-      <!-- Content wrapper -->
     </div>
-    <!-- / Layout page -->
-  </div>
+    <!-- /Error -->
 
-      <!-- Overlay -->
-      <div class="layout-overlay layout-menu-toggle"></div>
-    </div>
-    <!-- / Layout wrapper -->
+    <!-- / Content -->
 
-    <div class="buy-now">
-      <a
-        href=""
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Pop UP Message</a
-      >
-    </div>
+
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
+
     <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
     <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-
     <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
+
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
     <!-- Page JS -->
-    <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
