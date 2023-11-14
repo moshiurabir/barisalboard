@@ -3,7 +3,7 @@
 
  <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="" class="app-brand-link gap-2">
+        <a href="/admin" class="app-brand-link gap-2">
             <span class="app-brand-logo demo">
               <img src="{{ asset('assets/img/logo/logo.gif') }}" alt="logo" width="60" height="55">
             </span>
@@ -20,7 +20,7 @@
     <ul class="menu-inner py-1">
       <!-- Dashboard -->
       <li class="menu-item active">
-        <a href="" class="menu-link">
+        <a href="/admin" class="menu-link">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Dashboard</div>
         </a>
@@ -72,7 +72,7 @@
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="/admin/sscpayment" class="menu-link">
               <div data-i18n="Account">eSIF Payment</div>
             </a>
           </li>
