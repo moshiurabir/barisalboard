@@ -20,7 +20,7 @@ class SscPaymentController extends Controller
      */
     public function create()
     {
-        //
+        return view('adminbackend/ssc_registration/ssc_payment_add');
     }
 
     /**

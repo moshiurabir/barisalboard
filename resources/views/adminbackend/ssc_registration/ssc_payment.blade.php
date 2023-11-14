@@ -11,13 +11,8 @@
        <!-- Striped Rows -->
        <div class="card">
         <div class="demo-vertical-spacing card-header">
-            <button
-            type="button"
-            class="btn btn-primary float-end"
-            data-bs-toggle="button"
-            aria-pressed="true">
-            Add New Payment
-          </button>
+
+          <a href="/admin/sscpayment/create" class="btn btn-primary float-end" role="button" aria-pressed="true">Add New Payment</a>
         <h5 class="card-header" >SSC eSIF Payment board </h5>
 
 
