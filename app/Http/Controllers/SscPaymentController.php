@@ -12,7 +12,9 @@ class SscPaymentController extends Controller
      */
     public function index()
     {
-       return view('adminbackend/ssc_registration/ssc_payment');
+       return view('adminbackend/ssc_registration/ssc_payment', [
+           'sscpayments' => Ssc_payment::latest()->get()
+       ]);
     }
 
     /**
