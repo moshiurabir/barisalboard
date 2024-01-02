@@ -11,7 +11,7 @@
 <!-- <h3> Login Admin Name : {{ Auth::guard('admin')->user()->name }}</h3>
     <h3> Login Admin Email : {{ Auth::guard('admin')->user()->email }}</h3>-->
         <!-- Content -->
-        <h4 class="py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Basic Tables</h4>
+        <h4 class="py-3 mb-4"><span class="text-muted fw-light">SSC eSIF /</span> eSIF Payment</h4>
 
        <!-- Striped Rows -->
        <div class="card">
