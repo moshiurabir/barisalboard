@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ssc_payment;
+use App\Models\Ssc_payment;
 use Illuminate\Http\Request;
 
 class SscPaymentController extends Controller
@@ -28,7 +28,19 @@ class SscPaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       // dd($request->all());
+
+        $request->validate([
+            'numberofstudent' => 'required'
+        ]);
+      //  $ssc_payment = new Ssc_payment;
+       // $ssc_payment->numberofstudent = $request->numberofstudent;
+
+        $ssc_payment= Ssc_payment::create($request->except('_token'));
+        if ($ssc_payment) {
+            return redirect()->route('sscpayment.index')->with('success', 'Data inserted successfully');
+        }
+
     }
 
     /**
