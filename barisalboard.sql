@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 24, 2023 at 01:15 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: Jan 02, 2024 at 05:34 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -140,7 +140,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (9, '2019_08_19_000000_create_failed_jobs_table', 1),
 (10, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(11, '2023_07_21_150626_create_admins_table', 1);
+(11, '2023_07_21_150626_create_admins_table', 1),
+(12, '2023_11_07_045204_create_ssc_payments_table', 2);
 
 -- --------------------------------------------------------
 
@@ -172,6 +173,50 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ssc_payments`
+--
+
+CREATE TABLE `ssc_payments` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `eiin` varchar(255) DEFAULT NULL,
+  `institutename` varchar(255) DEFAULT NULL,
+  `numberofstudent` varchar(255) DEFAULT NULL,
+  `amount` varchar(255) DEFAULT NULL,
+  `sonali_random` varchar(255) DEFAULT NULL,
+  `check_bit` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `ssc_payments`
+--
+
+INSERT INTO `ssc_payments` (`id`, `eiin`, `institutename`, `numberofstudent`, `amount`, `sonali_random`, `check_bit`, `status`, `created_at`, `updated_at`) VALUES
+(1, '2324', '', '', '', '', '', '', NULL, NULL),
+(2, '', '', '33', '', '', '', '', '2024-01-01 10:46:13', '2024-01-01 10:46:13'),
+(3, '', '', '99', '', '', '', '', '2024-01-01 10:48:38', '2024-01-01 10:48:38'),
+(4, NULL, NULL, '98', NULL, NULL, NULL, NULL, '2024-01-01 11:07:02', '2024-01-01 11:07:02'),
+(5, NULL, NULL, '77', NULL, NULL, NULL, NULL, '2024-01-02 09:14:35', '2024-01-02 09:14:35'),
+(6, NULL, NULL, '78', NULL, NULL, NULL, NULL, '2024-01-02 09:16:01', '2024-01-02 09:16:01'),
+(7, NULL, NULL, '78', NULL, NULL, NULL, NULL, '2024-01-02 09:48:46', '2024-01-02 09:48:46'),
+(8, NULL, NULL, '65', NULL, NULL, NULL, NULL, '2024-01-02 09:48:59', '2024-01-02 09:48:59'),
+(9, NULL, NULL, '33', NULL, NULL, NULL, NULL, '2024-01-02 09:49:30', '2024-01-02 09:49:30'),
+(10, NULL, NULL, '123', NULL, NULL, NULL, NULL, '2024-01-02 09:54:17', '2024-01-02 09:54:17'),
+(11, NULL, NULL, '56', NULL, NULL, NULL, NULL, '2024-01-02 09:58:57', '2024-01-02 09:58:57'),
+(12, NULL, NULL, '467', NULL, NULL, NULL, NULL, '2024-01-02 10:03:31', '2024-01-02 10:03:31'),
+(13, NULL, NULL, '434', NULL, NULL, NULL, NULL, '2024-01-02 10:07:14', '2024-01-02 10:07:14'),
+(14, NULL, NULL, '4444', NULL, NULL, NULL, NULL, '2024-01-02 10:15:11', '2024-01-02 10:15:11'),
+(15, NULL, NULL, '65', NULL, NULL, NULL, NULL, '2024-01-02 10:16:57', '2024-01-02 10:16:57'),
+(16, NULL, NULL, '443', NULL, NULL, NULL, NULL, '2024-01-02 10:17:40', '2024-01-02 10:17:40'),
+(17, NULL, NULL, '123', NULL, NULL, NULL, NULL, '2024-01-02 10:18:58', '2024-01-02 10:18:58'),
+(18, NULL, NULL, '44', NULL, NULL, NULL, NULL, '2024-01-02 10:31:14', '2024-01-02 10:31:14'),
+(19, NULL, NULL, 'kk', NULL, NULL, NULL, NULL, '2024-01-02 10:31:36', '2024-01-02 10:31:36');
 
 -- --------------------------------------------------------
 
@@ -252,6 +297,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `ssc_payments`
+--
+ALTER TABLE `ssc_payments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -278,13 +329,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ssc_payments`
+--
+ALTER TABLE `ssc_payments`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `users`
