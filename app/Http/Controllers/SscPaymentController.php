@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ssc_payment;
 use Illuminate\Http\Request;
 
+
 class SscPaymentController extends Controller
 {
     /**
@@ -13,7 +14,8 @@ class SscPaymentController extends Controller
     public function index()
     {
        return view('adminbackend/ssc_registration/ssc_payment', [
-           'sscpayments' => Ssc_payment::latest()->get()
+           //'sscpayments' => Ssc_payment::latest()->get()
+           'sscpayments' => Ssc_payment::latest()->paginate(10),
        ]);
     }
 
