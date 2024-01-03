@@ -45,7 +45,7 @@ class AdminController extends Controller
     {
         Auth::guard('admin')->logout();
 
-        return redirect()->route('login_from')->with('error', 'Admin Logout Successfully');
+        return redirect()->route('login_from')->with('success', 'Admin Logout Successfully');
     }
 
     public function AdminRegister()
