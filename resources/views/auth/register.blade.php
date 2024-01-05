@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" id="registerForm">
         @csrf
 
         <!-- Name -->
@@ -39,14 +39,30 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
 
-            <x-primary-button class="ml-4">
+            <x-primary-button class="g-recaptcha ml-4"
+            data-sitekey="{{ config('services.recaptcha.site_key') }}"
+            data-callback='onSubmit'
+            data-action='register'>
                 {{ __('Register') }}
             </x-primary-button>
         </div>
     </form>
+
+@push('scripts')
+
+         <script>
+            function onSubmit(token) {
+                document.getElementById("registerForm").submit();
+            }
+        </script>
+
+@endpush
+
+
 </x-guest-layout>
