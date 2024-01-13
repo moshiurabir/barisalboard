@@ -13,12 +13,16 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('ড্যাশবোর্ড') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="url('institute-open-application')" :active="request()->routeIs('institute-open-application')">
+                        {{ __('স্কুল / কলেজ স্থাপনের আবেদন') }}
                     </x-nav-link>
                 </div>
             </div>
 
-            <!-- Settings Dropdown -->
+            <!-- Settings Dropdown establishing-institutions-->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">

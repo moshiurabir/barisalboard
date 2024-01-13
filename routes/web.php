@@ -7,6 +7,7 @@ use App\Http\Controllers\BoardcpController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AccountscpController;
 use App\Http\Controllers\SscPaymentController;
+use App\Http\Controllers\InstituteopenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +49,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+    Route::get('institute-open-application', [InstituteopenController::class, 'create'])->name('institute-open-application.create');
+    Route::post('institute-open-application', [InstituteopenController::class, 'store']);
+
+
 });
+
+
+
+
+
+Route::get('instituteopen', [InstituteopenController::class, 'create'])->name('instituteopen.create');
+
+
 
 require __DIR__.'/auth.php';
 
