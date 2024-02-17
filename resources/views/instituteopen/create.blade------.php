@@ -12,18 +12,12 @@
 <form class="pt-6 pb-8 mb-4 pl-10 pr-10" action="" method="POST">
     <div class="grid gap-6 mb-6 md:grid-cols-2">
         <div>
-            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">আবেদনের বিষয় </label>
-            <select id="name"  name="name" :value="old('name')" required autofocus autocomplete="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              <option selected>Choose a country</option>
-              <option class="rounded-lg font-bold" value="1">নতুন প্রতিষ্ঠান স্থাপনের আবেদন </option>
-
-            </select>
+            <label for="first_name" class="block mb-2 text-sm text-left font-medium text-gray-900 dark:text-white">First name</label>
+            <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required>
         </div>
         <div>
-            <label for="last_name" class="block mb-2 text-sm text-left font-medium text-gray-900 dark:text-white">আবেদনকারীর মোবাইল </label>
-
-            <input type="text" id="mobile" name="mobile" :value="old('mobile')" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required >
-            <x-input-error :messages="$errors->get('mobile')" class="mt-2" />
+            <label for="last_name" class="block mb-2 text-sm text-left font-medium text-gray-900 dark:text-white">Last name</label>
+            <input type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Doe" required>
         </div>
         <div>
             <label for="company" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company</label>
