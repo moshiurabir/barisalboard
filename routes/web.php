@@ -25,6 +25,8 @@ Route::get('/', function () {
 });
 
 /* -----admin Route----- */
+//Route::prefix('admin')->middleware('admin','check-session-admin','check-login-admin')->group(function () {
+
 Route::prefix('admin')->group(function () {
     Route::get('/',[AdminController::class, 'Index'])->name('login_from');
     Route::get('/login', [AdminController::class, 'Index'])->name('login_from');

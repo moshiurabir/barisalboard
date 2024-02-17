@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2024 at 07:27 PM
+-- Generation Time: Feb 17, 2024 at 05:03 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -28,6 +28,51 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admins` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `subdomain` varchar(255) DEFAULT NULL,
+  `eiin` varchar(255) NOT NULL,
+  `institutename` varchar(255) DEFAULT NULL,
+  `institute_established_date` date DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `district` varchar(5) DEFAULT NULL,
+  `t_code` varchar(255) DEFAULT NULL,
+  `c_code` varchar(255) DEFAULT NULL,
+  `s_code` varchar(255) DEFAULT NULL,
+  `postoffice` varchar(255) DEFAULT NULL,
+  `upazilla` varchar(255) DEFAULT NULL,
+  `zilla` varchar(255) DEFAULT NULL,
+  `institution_type` varchar(255) DEFAULT NULL,
+  `institution_type_details` varchar(255) DEFAULT NULL,
+  `head_institution` varchar(255) DEFAULT NULL,
+  `mobile` varchar(255) DEFAULT NULL,
+  `head_institution_sign` varchar(255) DEFAULT NULL,
+  `template_isadmin` varchar(255) DEFAULT NULL,
+  `ssc_humanities_seat` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `session_id` varchar(100) DEFAULT NULL,
+  `notes` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `subdomain`, `eiin`, `institutename`, `institute_established_date`, `email`, `email_verified_at`, `district`, `t_code`, `c_code`, `s_code`, `postoffice`, `upazilla`, `zilla`, `institution_type`, `institution_type_details`, `head_institution`, `mobile`, `head_institution_sign`, `template_isadmin`, `ssc_humanities_seat`, `password`, `session_id`, `notes`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', '', '102477', '', '0000-00-00', 'admin2@localhost.com', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '$2y$10$z53eKnEEJuzTp2Eqb4k5iOiooGsO4Llf9BXnO4t5e0TKvwbyYmPg2', NULL, '', '1', NULL, NULL),
+(3, 'Md Moshiur abir', NULL, '102598', NULL, NULL, 'admin@localhost.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$CgK4i.kEsbss3dhLdggdZexGJaURMd6FekozscbRvU6s/VEdjbbH.', 'XwZyahHhPh1aER9d6Rdt01iivhHRAZH8nnGrmAAp', NULL, '1', '2023-07-22 16:01:59', '2024-02-17 00:35:35');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins_backup`
+--
+
+CREATE TABLE `admins_backup` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `subdomain` varchar(255) DEFAULT NULL,
@@ -89,6 +134,7 @@ CREATE TABLE `admins` (
   `hsc_teacher_sad` date DEFAULT NULL,
   `hsc_payment_permission` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `session_id` varchar(80) NOT NULL,
   `notes` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -96,12 +142,12 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `admins`
+-- Dumping data for table `admins_backup`
 --
 
-INSERT INTO `admins` (`id`, `name`, `subdomain`, `eiin`, `institutename`, `institute_established_date`, `email`, `email_verified_at`, `district`, `t_code`, `c_code`, `s_code`, `postoffice`, `upazilla`, `zilla`, `institution_type`, `institution_type_details`, `head_institution`, `mobile`, `head_institution_sign`, `template_isadmin`, `ssc_science_permission`, `ssc_science_seat`, `ssc_science_permission_expiredate`, `ssc_humanities_permission`, `ssc_humanities_seat`, `ssc_humanities_permission_expiredate`, `ssc_businessstudies_permission`, `ssc_businessstudies_seat`, `ssc_businessstudies_permission_expiredate`, `hsc_science_permission`, `hsc_science_seat`, `hsc_science_permission_expiredate`, `hsc_humanities_permission`, `hsc_humanities_seat`, `hsc_humanities_permission_expiredate`, `hsc_businessstudies_permission`, `hsc_businessstudies_seat`, `hsc_businessstudies_permission_expiredate`, `hsc_homeeconomics_permission`, `hsc_homeeconomics_seat`, `hsc_homeeconomics_permission_expiredate`, `hsc_agriculture_permission`, `hsc_agriculture_seat`, `hsc_agriculture_permission_expiredate`, `hsc_islamicstudies_permission`, `hsc_islamicstudies_seat`, `hsc_islamicstudies_permission_expiredate`, `hsc_music_permission`, `hsc_music_seat`, `hsc_music_permission_expiredate`, `jsc_sad`, `ssc_sad`, `ssc_eff_sad`, `ssc_teacher_sad`, `ssc_payment_permission`, `hsc_sad`, `hsc_eff_sad`, `hsc_teacher_sad`, `hsc_payment_permission`, `password`, `notes`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', '', '102477', '', '0000-00-00', 'admin2@localhost.com', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '$2y$10$z53eKnEEJuzTp2Eqb4k5iOiooGsO4Llf9BXnO4t5e0TKvwbyYmPg2', '', '1', NULL, NULL),
-(3, 'Md Moshiur abir', NULL, '102598', NULL, NULL, 'admin@localhost.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$CgK4i.kEsbss3dhLdggdZexGJaURMd6FekozscbRvU6s/VEdjbbH.', NULL, '1', '2023-07-22 16:01:59', '2023-07-22 16:01:59');
+INSERT INTO `admins_backup` (`id`, `name`, `subdomain`, `eiin`, `institutename`, `institute_established_date`, `email`, `email_verified_at`, `district`, `t_code`, `c_code`, `s_code`, `postoffice`, `upazilla`, `zilla`, `institution_type`, `institution_type_details`, `head_institution`, `mobile`, `head_institution_sign`, `template_isadmin`, `ssc_science_permission`, `ssc_science_seat`, `ssc_science_permission_expiredate`, `ssc_humanities_permission`, `ssc_humanities_seat`, `ssc_humanities_permission_expiredate`, `ssc_businessstudies_permission`, `ssc_businessstudies_seat`, `ssc_businessstudies_permission_expiredate`, `hsc_science_permission`, `hsc_science_seat`, `hsc_science_permission_expiredate`, `hsc_humanities_permission`, `hsc_humanities_seat`, `hsc_humanities_permission_expiredate`, `hsc_businessstudies_permission`, `hsc_businessstudies_seat`, `hsc_businessstudies_permission_expiredate`, `hsc_homeeconomics_permission`, `hsc_homeeconomics_seat`, `hsc_homeeconomics_permission_expiredate`, `hsc_agriculture_permission`, `hsc_agriculture_seat`, `hsc_agriculture_permission_expiredate`, `hsc_islamicstudies_permission`, `hsc_islamicstudies_seat`, `hsc_islamicstudies_permission_expiredate`, `hsc_music_permission`, `hsc_music_seat`, `hsc_music_permission_expiredate`, `jsc_sad`, `ssc_sad`, `ssc_eff_sad`, `ssc_teacher_sad`, `ssc_payment_permission`, `hsc_sad`, `hsc_eff_sad`, `hsc_teacher_sad`, `hsc_payment_permission`, `password`, `session_id`, `notes`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', '', '102477', '', '0000-00-00', 'admin2@localhost.com', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '$2y$10$z53eKnEEJuzTp2Eqb4k5iOiooGsO4Llf9BXnO4t5e0TKvwbyYmPg2', '', '', '1', NULL, NULL),
+(3, 'Md Moshiur abir', NULL, '102598', NULL, NULL, 'admin@localhost.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$CgK4i.kEsbss3dhLdggdZexGJaURMd6FekozscbRvU6s/VEdjbbH.', '', NULL, '1', '2023-07-22 16:01:59', '2024-02-12 09:56:52');
 
 -- --------------------------------------------------------
 
@@ -471,7 +517,10 @@ INSERT INTO `ssc_payments` (`id`, `eiin`, `institutename`, `numberofstudent`, `a
 (123, NULL, NULL, '44', NULL, NULL, NULL, NULL, NULL, NULL),
 (124, NULL, NULL, '34', NULL, NULL, NULL, NULL, NULL, NULL),
 (125, NULL, NULL, '999', NULL, NULL, NULL, NULL, NULL, NULL),
-(126, NULL, NULL, '9', NULL, NULL, NULL, NULL, NULL, NULL);
+(126, NULL, NULL, '9', NULL, NULL, NULL, NULL, NULL, NULL),
+(127, NULL, NULL, '70', NULL, NULL, NULL, NULL, '2024-02-12 09:11:41', '2024-02-12 09:11:41'),
+(128, NULL, NULL, '963', NULL, NULL, NULL, NULL, '2024-02-12 13:06:04', '2024-02-12 13:06:04'),
+(129, NULL, NULL, '66', NULL, NULL, NULL, NULL, '2024-02-12 13:06:28', '2024-02-12 13:06:28');
 
 -- --------------------------------------------------------
 
@@ -487,6 +536,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
+  `session_id` varchar(255) NOT NULL,
   `is_admin` varchar(255) DEFAULT NULL,
   `role` varchar(255) DEFAULT NULL,
   `section` varchar(255) DEFAULT NULL,
@@ -510,33 +560,33 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `designation`, `username`, `email`, `email_verified_at`, `password`, `is_admin`, `role`, `section`, `section_id`, `section_department`, `mobile`, `sign`, `photo`, `note`, `status`, `remember_token`, `created_at`, `updated_at`, `last_login_at`, `last_login_ip`, `two_factor_code`, `two_factor_expires_at`) VALUES
-(1, 'Md Moshiur abir', NULL, NULL, 'user@localhost.com', NULL, '$2y$10$nCtNjloCo02QzDHSjP/a2uLUqYoSHHWnMfMA4K90a8XU6K2uIu7US', NULL, 'admin', NULL, NULL, NULL, '01711469894', NULL, NULL, NULL, 'active', NULL, '2023-08-02 05:09:26', '2024-01-06 00:21:23', '2024-01-06 06:21:23', '127.0.0.1', NULL, NULL),
-(2, 'Md Mamun Hossain', NULL, NULL, 'user1@localhost.com', NULL, '$2y$10$nCtNjloCo02QzDHSjP/a2uLUqYoSHHWnMfMA4K90a8XU6K2uIu7US', NULL, 'accounts', NULL, NULL, NULL, '01711469895', NULL, NULL, NULL, 'active', NULL, '2023-08-02 05:09:26', '2023-08-02 05:09:26', NULL, NULL, NULL, NULL),
-(3, 'Md User', NULL, NULL, 'user2@localhost.com', '2024-01-06 00:57:23', '$2y$10$nCtNjloCo02QzDHSjP/a2uLUqYoSHHWnMfMA4K90a8XU6K2uIu7US', NULL, 'user', NULL, NULL, NULL, '01711469896', NULL, NULL, NULL, 'active', NULL, '2023-08-02 05:09:26', '2024-01-13 04:38:01', '2024-01-13 10:38:01', '127.0.0.1', NULL, NULL),
-(4, 'Arun Kumar Gyan', NULL, NULL, 'user3@localhost.com', NULL, '$2y$10$nCtNjloCo02QzDHSjP/a2uLUqYoSHHWnMfMA4K90a8XU6K2uIu7US', NULL, 'exam', NULL, NULL, NULL, '01711469895', NULL, NULL, NULL, 'active', NULL, '2023-08-02 05:09:26', '2023-08-02 05:09:26', NULL, NULL, NULL, NULL),
-(5, 'Andrew Lindsey', NULL, NULL, 'lutuqogeq@mailinator.com', NULL, '$2y$10$zJ.gOQtu9bZQM.TJgkBxJ.NJHbcfxnv7R6kI1xdLIGVtuf4hEal9a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-04 23:51:40', '2024-01-04 23:51:40', NULL, NULL, NULL, NULL),
-(6, 'Charde Hines', NULL, NULL, 'hewupedud@mailinator.com', NULL, '$2y$10$TArL2EPHbgOCNkF.EEWJ9O3sH3ZudZuDBcoyKbc7asBuSfXAQNvIO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-04 23:52:05', '2024-01-04 23:52:05', NULL, NULL, NULL, NULL),
-(7, 'Emily Perry', NULL, NULL, 'cowetumoco@mailinator.com', NULL, '$2y$10$SbzSjJ6euFsnHrvkSxKgL.Yl99iIZjA0VO.oo0O702gE6GnY9Itoy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 00:30:40', '2024-01-05 00:30:40', NULL, NULL, NULL, NULL),
-(8, 'Neve Manning', NULL, NULL, 'nacynypugy@mailinator.com', NULL, '$2y$10$VXoIsWUkUEo9Npctyts3E.pcAevabdZk2Hvi4voxrZyepgVLPdWsu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 00:41:45', '2024-01-05 00:41:45', NULL, NULL, NULL, NULL),
-(9, 'Otto Reese', NULL, NULL, 'fuhizapepa@mailinator.com', NULL, '$2y$10$ugshoiY.0Vw3vXF3kBta8e78kd6E8WrGNPRKkF4vmzCamNl0JAFZ6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 00:49:58', '2024-01-05 00:49:58', NULL, NULL, NULL, NULL),
-(10, 'Winter Crosby', NULL, NULL, 'qenoq@mailinator.com', NULL, '$2y$10$jEqRpbWD8nR2pt71hI34KOEajuJ/j6S9uXHT/NbL8dac0NpvloN9O', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 02:07:00', '2024-01-05 02:07:00', NULL, NULL, NULL, NULL),
-(11, 'Jordan Johnson', NULL, NULL, 'dilyja@mailinator.com', NULL, '$2y$10$1c/7k7a3U/Lf8NmFPTa6ku/yL/orcGUHLbORwd9wOqHbAzpttbE.6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 02:33:49', '2024-01-05 02:33:49', NULL, NULL, NULL, NULL),
-(12, 'Tad Herring', NULL, NULL, 'zepudi@mailinator.com', NULL, '$2y$10$0c2vn1b41f8WLPcHqMxxMOrTJTKk3FaTPYyO26MnNzRvkW3I7UJx2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 03:45:55', '2024-01-05 03:45:55', NULL, NULL, NULL, NULL),
-(13, 'Janna David', NULL, NULL, 'sokyjyve@mailinator.com', NULL, '$2y$10$kJwMPZ.sHVNToMdzbxIfjeOoeBIZRAbAcA0ch/WRLv229d/XQwOfi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 03:46:04', '2024-01-05 03:46:04', NULL, NULL, NULL, NULL),
-(14, 'Tanek Hebert', NULL, NULL, 'bazu@mailinator.com', NULL, '$2y$10$HcjyvgbYziN3OeFvtfMA9.//9ElEZmOkdq9eBNQCY4HUdo2Aly2Uq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 03:47:08', '2024-01-05 03:47:08', NULL, NULL, NULL, NULL),
-(15, 'Drew King', NULL, NULL, 'hinugo@mailinator.com', NULL, '$2y$10$Fu6w.OJuPNyICGqMaPuSUuTs3E1.fgkDcL1uG/3dKsxhnmu7wXIT.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 03:52:54', '2024-01-05 03:52:54', NULL, NULL, NULL, NULL),
-(16, 'Malik Hewitt', NULL, NULL, 'woculuz@mailinator.com', NULL, '$2y$10$UoVfTzhND/Z/KOSzjMo9L.rl7XASQ9KTTmfNtOUY2bBIBekQyns1e', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 04:05:16', '2024-01-05 04:05:16', NULL, NULL, NULL, NULL),
-(17, 'Brittany Calderon', NULL, NULL, 'rinyxucywa@mailinator.com', NULL, '$2y$10$xPvm/Tl.bfkmc6VcpKpTSeKdvw9dU7YoZ0I1vxT7G56Pcg1CHHYIO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 04:05:59', '2024-01-05 04:05:59', NULL, NULL, NULL, NULL),
-(18, 'Daphne Jacobson', NULL, NULL, 'ruqaqy@mailinator.com', NULL, '$2y$10$idvjQbSgaL5dHuIhjmr39OKCdo8iu6tDnlKonvQ3BucfXPsunHGHi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 04:18:48', '2024-01-05 04:18:48', NULL, NULL, NULL, NULL),
-(19, 'Moana Doyle', NULL, NULL, 'bulotuqi@mailinator.com', NULL, '$2y$10$Svtjv6Y.wGZndV6zqjIOi./0MYmU9tDoUoIShHHWBUJXAZD5buxBC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 08:17:11', '2024-01-05 08:17:11', NULL, NULL, NULL, NULL),
-(20, 'Katell Robles', NULL, NULL, 'bajid@mailinator.com', NULL, '$2y$10$RgUI3NHbAlgEuVSIJSelOuRxtZkiomagMhPjWNvSvfrL9BODDciAi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 08:17:21', '2024-01-05 08:17:21', NULL, NULL, NULL, NULL),
-(21, 'Cailin Becker', NULL, NULL, 'jycoq@mailinator.com', NULL, '$2y$10$0CEJZFErIagJM0pA4wo1XOWMvkYsckugjf3jFvW3lyu2Bvu38pqui', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 08:48:02', '2024-01-05 08:48:02', NULL, NULL, NULL, NULL),
-(22, 'Peter Talley', NULL, NULL, 'figamoxi@mailinator.com', NULL, '$2y$10$vkZyw3rf.w5JhmhSUUvvguotjeEwCbcVyymMnnh/TgItBYe9H2Stq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 10:11:37', '2024-01-05 10:11:37', NULL, NULL, NULL, NULL),
-(23, 'tempuser', NULL, NULL, 'tempuser@gmail.com', NULL, '$2y$10$6LF/NZoHFJ.07e305ZsTTuGb/JUPWFQ3wYq3HVy92tOuSdlGUCASe', NULL, 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 10:55:28', '2024-01-05 10:56:46', NULL, NULL, NULL, NULL),
-(24, 'Baker Snyder', NULL, NULL, 'xizysebeh@mailinator.com', NULL, '$2y$10$vGzibpo5oEZdy7XE.zfev.Wo6X9FL1lvPG6Arig.UXM6zEimM3vSK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 12:02:05', '2024-01-05 12:02:05', NULL, NULL, NULL, NULL),
-(25, 'Myles Ratliff', NULL, NULL, 'wuneh@mailinator.com', NULL, '$2y$10$swrLDfpU0MdxYcAFLgHTKOZPGIutclFNMmJEqYZ/iNfSQ1ZL58ekS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 13:03:05', '2024-01-05 13:03:05', NULL, NULL, NULL, NULL),
-(26, 'Indigo Mccormick', NULL, NULL, 'qocidi@mailinator.com', NULL, '$2y$10$0PwEQfBhZrgMHlPq6/v3YeEnEpfh2.GZb37AkbRcz3nZaOvDN.j5e', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-06 06:48:01', '2024-01-06 06:48:01', NULL, NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `designation`, `username`, `email`, `email_verified_at`, `password`, `session_id`, `is_admin`, `role`, `section`, `section_id`, `section_department`, `mobile`, `sign`, `photo`, `note`, `status`, `remember_token`, `created_at`, `updated_at`, `last_login_at`, `last_login_ip`, `two_factor_code`, `two_factor_expires_at`) VALUES
+(1, 'Md Moshiur abir', NULL, NULL, 'user@localhost.com', NULL, '$2y$10$nCtNjloCo02QzDHSjP/a2uLUqYoSHHWnMfMA4K90a8XU6K2uIu7US', '', NULL, 'admin', NULL, NULL, NULL, '01711469894', NULL, NULL, NULL, 'active', NULL, '2023-08-02 05:09:26', '2024-01-06 00:21:23', '2024-01-06 06:21:23', '127.0.0.1', NULL, NULL),
+(2, 'Md Mamun Hossain', NULL, NULL, 'user1@localhost.com', NULL, '$2y$10$nCtNjloCo02QzDHSjP/a2uLUqYoSHHWnMfMA4K90a8XU6K2uIu7US', '', NULL, 'accounts', NULL, NULL, NULL, '01711469895', NULL, NULL, NULL, 'active', NULL, '2023-08-02 05:09:26', '2023-08-02 05:09:26', NULL, NULL, NULL, NULL),
+(3, 'Md User', NULL, NULL, 'user2@localhost.com', '2024-01-06 00:57:23', '$2y$10$nCtNjloCo02QzDHSjP/a2uLUqYoSHHWnMfMA4K90a8XU6K2uIu7US', 'CyburBlCWFHZZVOnkASaTwEZdKOagngee2f4ylD1', NULL, 'user', NULL, NULL, NULL, '01711469896', NULL, NULL, NULL, 'active', NULL, '2023-08-02 05:09:26', '2024-02-12 11:56:36', '2024-02-12 17:06:20', '127.0.0.1', NULL, NULL),
+(4, 'Arun Kumar Gyan', NULL, NULL, 'user3@localhost.com', NULL, '$2y$10$nCtNjloCo02QzDHSjP/a2uLUqYoSHHWnMfMA4K90a8XU6K2uIu7US', '', NULL, 'exam', NULL, NULL, NULL, '01711469895', NULL, NULL, NULL, 'active', NULL, '2023-08-02 05:09:26', '2023-08-02 05:09:26', NULL, NULL, NULL, NULL),
+(5, 'Andrew Lindsey', NULL, NULL, 'lutuqogeq@mailinator.com', NULL, '$2y$10$zJ.gOQtu9bZQM.TJgkBxJ.NJHbcfxnv7R6kI1xdLIGVtuf4hEal9a', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-04 23:51:40', '2024-01-04 23:51:40', NULL, NULL, NULL, NULL),
+(6, 'Charde Hines', NULL, NULL, 'hewupedud@mailinator.com', NULL, '$2y$10$TArL2EPHbgOCNkF.EEWJ9O3sH3ZudZuDBcoyKbc7asBuSfXAQNvIO', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-04 23:52:05', '2024-01-04 23:52:05', NULL, NULL, NULL, NULL),
+(7, 'Emily Perry', NULL, NULL, 'cowetumoco@mailinator.com', NULL, '$2y$10$SbzSjJ6euFsnHrvkSxKgL.Yl99iIZjA0VO.oo0O702gE6GnY9Itoy', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 00:30:40', '2024-01-05 00:30:40', NULL, NULL, NULL, NULL),
+(8, 'Neve Manning', NULL, NULL, 'nacynypugy@mailinator.com', NULL, '$2y$10$VXoIsWUkUEo9Npctyts3E.pcAevabdZk2Hvi4voxrZyepgVLPdWsu', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 00:41:45', '2024-01-05 00:41:45', NULL, NULL, NULL, NULL),
+(9, 'Otto Reese', NULL, NULL, 'fuhizapepa@mailinator.com', NULL, '$2y$10$ugshoiY.0Vw3vXF3kBta8e78kd6E8WrGNPRKkF4vmzCamNl0JAFZ6', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 00:49:58', '2024-01-05 00:49:58', NULL, NULL, NULL, NULL),
+(10, 'Winter Crosby', NULL, NULL, 'qenoq@mailinator.com', NULL, '$2y$10$jEqRpbWD8nR2pt71hI34KOEajuJ/j6S9uXHT/NbL8dac0NpvloN9O', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 02:07:00', '2024-01-05 02:07:00', NULL, NULL, NULL, NULL),
+(11, 'Jordan Johnson', NULL, NULL, 'dilyja@mailinator.com', NULL, '$2y$10$1c/7k7a3U/Lf8NmFPTa6ku/yL/orcGUHLbORwd9wOqHbAzpttbE.6', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 02:33:49', '2024-01-05 02:33:49', NULL, NULL, NULL, NULL),
+(12, 'Tad Herring', NULL, NULL, 'zepudi@mailinator.com', NULL, '$2y$10$0c2vn1b41f8WLPcHqMxxMOrTJTKk3FaTPYyO26MnNzRvkW3I7UJx2', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 03:45:55', '2024-01-05 03:45:55', NULL, NULL, NULL, NULL),
+(13, 'Janna David', NULL, NULL, 'sokyjyve@mailinator.com', NULL, '$2y$10$kJwMPZ.sHVNToMdzbxIfjeOoeBIZRAbAcA0ch/WRLv229d/XQwOfi', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 03:46:04', '2024-01-05 03:46:04', NULL, NULL, NULL, NULL),
+(14, 'Tanek Hebert', NULL, NULL, 'bazu@mailinator.com', NULL, '$2y$10$HcjyvgbYziN3OeFvtfMA9.//9ElEZmOkdq9eBNQCY4HUdo2Aly2Uq', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 03:47:08', '2024-01-05 03:47:08', NULL, NULL, NULL, NULL),
+(15, 'Drew King', NULL, NULL, 'hinugo@mailinator.com', NULL, '$2y$10$Fu6w.OJuPNyICGqMaPuSUuTs3E1.fgkDcL1uG/3dKsxhnmu7wXIT.', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 03:52:54', '2024-01-05 03:52:54', NULL, NULL, NULL, NULL),
+(16, 'Malik Hewitt', NULL, NULL, 'woculuz@mailinator.com', NULL, '$2y$10$UoVfTzhND/Z/KOSzjMo9L.rl7XASQ9KTTmfNtOUY2bBIBekQyns1e', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 04:05:16', '2024-01-05 04:05:16', NULL, NULL, NULL, NULL),
+(17, 'Brittany Calderon', NULL, NULL, 'rinyxucywa@mailinator.com', NULL, '$2y$10$xPvm/Tl.bfkmc6VcpKpTSeKdvw9dU7YoZ0I1vxT7G56Pcg1CHHYIO', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 04:05:59', '2024-01-05 04:05:59', NULL, NULL, NULL, NULL),
+(18, 'Daphne Jacobson', NULL, NULL, 'ruqaqy@mailinator.com', NULL, '$2y$10$idvjQbSgaL5dHuIhjmr39OKCdo8iu6tDnlKonvQ3BucfXPsunHGHi', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 04:18:48', '2024-01-05 04:18:48', NULL, NULL, NULL, NULL),
+(19, 'Moana Doyle', NULL, NULL, 'bulotuqi@mailinator.com', NULL, '$2y$10$Svtjv6Y.wGZndV6zqjIOi./0MYmU9tDoUoIShHHWBUJXAZD5buxBC', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 08:17:11', '2024-01-05 08:17:11', NULL, NULL, NULL, NULL),
+(20, 'Katell Robles', NULL, NULL, 'bajid@mailinator.com', NULL, '$2y$10$RgUI3NHbAlgEuVSIJSelOuRxtZkiomagMhPjWNvSvfrL9BODDciAi', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 08:17:21', '2024-01-05 08:17:21', NULL, NULL, NULL, NULL),
+(21, 'Cailin Becker', NULL, NULL, 'jycoq@mailinator.com', NULL, '$2y$10$0CEJZFErIagJM0pA4wo1XOWMvkYsckugjf3jFvW3lyu2Bvu38pqui', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 08:48:02', '2024-01-05 08:48:02', NULL, NULL, NULL, NULL),
+(22, 'Peter Talley', NULL, NULL, 'figamoxi@mailinator.com', NULL, '$2y$10$vkZyw3rf.w5JhmhSUUvvguotjeEwCbcVyymMnnh/TgItBYe9H2Stq', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 10:11:37', '2024-01-05 10:11:37', NULL, NULL, NULL, NULL),
+(23, 'tempuser', NULL, NULL, 'tempuser@gmail.com', NULL, '$2y$10$6LF/NZoHFJ.07e305ZsTTuGb/JUPWFQ3wYq3HVy92tOuSdlGUCASe', '', NULL, 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 10:55:28', '2024-01-05 10:56:46', NULL, NULL, NULL, NULL),
+(24, 'Baker Snyder', NULL, NULL, 'xizysebeh@mailinator.com', NULL, '$2y$10$vGzibpo5oEZdy7XE.zfev.Wo6X9FL1lvPG6Arig.UXM6zEimM3vSK', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 12:02:05', '2024-01-05 12:02:05', NULL, NULL, NULL, NULL),
+(25, 'Myles Ratliff', NULL, NULL, 'wuneh@mailinator.com', NULL, '$2y$10$swrLDfpU0MdxYcAFLgHTKOZPGIutclFNMmJEqYZ/iNfSQ1ZL58ekS', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-05 13:03:05', '2024-01-05 13:03:05', NULL, NULL, NULL, NULL),
+(26, 'Indigo Mccormick', NULL, NULL, 'qocidi@mailinator.com', NULL, '$2y$10$0PwEQfBhZrgMHlPq6/v3YeEnEpfh2.GZb37AkbRcz3nZaOvDN.j5e', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-06 06:48:01', '2024-01-06 06:48:01', NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -546,6 +596,14 @@ INSERT INTO `users` (`id`, `name`, `designation`, `username`, `email`, `email_ve
 -- Indexes for table `admins`
 --
 ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `admins_eiin_unique` (`eiin`),
+  ADD UNIQUE KEY `admins_email_unique` (`email`);
+
+--
+-- Indexes for table `admins_backup`
+--
+ALTER TABLE `admins_backup`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `admins_eiin_unique` (`eiin`),
   ADD UNIQUE KEY `admins_email_unique` (`email`);
@@ -607,6 +665,12 @@ ALTER TABLE `admins`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `admins_backup`
+--
+ALTER TABLE `admins_backup`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -634,7 +698,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `ssc_payments`
 --
 ALTER TABLE `ssc_payments`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- AUTO_INCREMENT for table `users`

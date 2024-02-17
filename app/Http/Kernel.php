@@ -68,5 +68,7 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\Admin::class,
         'check-session' => \App\Http\Middleware\CheckSingleSession::class,
         'check-login' => \App\Http\Middleware\CheckLogin::class,
+        'check-session-admin' => \App\Http\Middleware\CheckSingleSessionAdmin::class,
+        'check-login-admin' => \App\Http\Middleware\CheckLoginAdmin::class,
     ];
 }
