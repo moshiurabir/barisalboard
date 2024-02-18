@@ -8,165 +8,286 @@
     <div class="py-2 text-center">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <form class="w-full" action="{{ url('institute-open-application') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
 
-<form class="pt-6 pb-8 mb-4 pl-10 pr-10" action="" method="POST">
-    <div class="grid gap-6 mb-6 md:grid-cols-2">
-        <div>
-            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">আবেদনের বিষয় </label>
-            <select id="name"  name="name" :value="old('name')" required autofocus autocomplete="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              <option selected>Choose a country</option>
-              <option class="rounded-lg font-bold" value="1">নতুন প্রতিষ্ঠান স্থাপনের আবেদন </option>
 
-            </select>
-        </div>
-        <div>
-            <label for="last_name" class="block mb-2 text-sm text-left font-medium text-gray-900 dark:text-white">আবেদনকারীর মোবাইল </label>
 
-            <input type="text" id="mobile" name="mobile" :value="old('mobile')" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required >
+                    <div class="grid grid-cols-4 md:grid-cols-8 gap-3 pl-10 pt-10"> <!-- Grid Container -->
+                        <div class="flex items-center">  <!-- Grid cell -->
+                          <label class="text-gray-500 font-bold mb-1 md:mb-0 mr-2 whitespace-nowrap" for="inline-full-name">আবেদনের বিষয়</label>
+                        </div>
+                        <div class="flex items-center col-span-3">  <!-- Grid cell -->
+                          <select class="border-2 border-gray-600 w-full rounded-lg" name="users" id="users">
+                            <option value="user1">One</option>
+                            <option value="user2">Two</option>
+                            <option value="user3">Three</option>
+                          </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-4 md:grid-cols-8 gap-3 pl-10 pt-10"> <!-- Grid Container -->
+ <div class="flex items-center"> <!-- Grid cell -->
+        <label class="text-gray-500 font-bold mb-1 md:mb-0 whitespace-nowrap mr-2" for="inline-password">First Name</label>
+      </div>
+      <div class="flex items-center col-span-3"> <!-- Grid cell -->
+        <input class="appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-800" id="first-name" type="text" placeholder="First Name" />
+      </div>
+      <div class="flex items-center"> <!-- Grid cell -->
+        <label class="block text-gray-500 font-bold mb-1 md:mb-0 whitespace-nowrap mr-2" for="last-name">Last Name</label>
+      </div>
+      <div class="flex items-center col-span-3"> <!-- Grid cell -->
+        <input class="appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-800" id="inline-password" type="text" placeholder="Last Name" />
+      </div>
+
+    </div>
+
+
+
+                <!-- Name -->
+                <div class="pl-10 pt-10 flex">
+                             <div class="pr-7 text-lg">
+                                <label class=" text-xl font-bold">আবেদনের বিষয় </label>
+                            </div>
+                                <div class="rounded-xl">
+                                <select class="rounded-lg font-bold" id="name" name="name" :value="old('name')" required autofocus autocomplete="name" >
+                                <option class="rounded-lg font-bold" value="1">নতুন প্রতিষ্ঠান স্থাপনের আবেদন </option>
+                                </select>
+                             </div>
+                            </div>
+
+                    <!-- Mobile -->
+                    <div class="pl-10 pt-10 flex">
+                        <div class="pr-7 text-lg">
+                           <label class=" text-xl font-bold valign-middle">আবেদনকারীর মোবাইল</label>
+                        </div>
+                           <div class="block w-56">
+            <x-text-input id="mobile" class="block mt-1 w-full" type="text" name="mobile" :value="old('mobile')" required autofocus autocomplete="mobile" />
             <x-input-error :messages="$errors->get('mobile')" class="mt-2" />
         </div>
-        <div>
-            <label for="company" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company</label>
-            <input type="text" id="company" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Flowbite" required>
-        </div>
-        <div>
-            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone number</label>
-            <input type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
-        </div>
-        <div>
-            <label for="website" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Website URL</label>
-            <input type="url" id="website" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="flowbite.com" required>
-        </div>
-        <div>
-            <label for="visitors" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Unique visitors (per month)</label>
-            <input type="number" id="visitors" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required>
-        </div>
-        <div>
-            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
-<select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-  <option selected>Choose a country</option>
-  <option value="US">United States</option>
-  <option value="CA">Canada</option>
-  <option value="FR">France</option>
-  <option value="DE">Germany</option>
-</select>
-        </div>
     </div>
-    <div class="mb-6">
-        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address</label>
-        <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required>
-    </div>
-    <div class="mb-6">
-        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-        <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required>
-    </div>
-    <div class="mb-6">
-        <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
-        <input type="password" id="confirm_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" required>
-    </div>
-    <div class="mb-6">
-<label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
-<textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
-</div>
 
-
-<div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
-    <div class="flex items-center justify-between px-3 py-2 border-b dark:border-gray-600">
-        <div class="flex flex-wrap items-center divide-gray-200 sm:divide-x sm:rtl:divide-x-reverse dark:divide-gray-600">
-            <div class="flex items-center space-x-1 rtl:space-x-reverse sm:pe-4">
-                <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 20">
-                         <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M1 6v8a5 5 0 1 0 10 0V4.5a3.5 3.5 0 1 0-7 0V13a2 2 0 0 0 4 0V6"/>
-                     </svg>
-                    <span class="sr-only">Attach file</span>
-                </button>
-                <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                         <path d="M8 0a7.992 7.992 0 0 0-6.583 12.535 1 1 0 0 0 .12.183l.12.146c.112.145.227.285.326.4l5.245 6.374a1 1 0 0 0 1.545-.003l5.092-6.205c.206-.222.4-.455.578-.7l.127-.155a.934.934 0 0 0 .122-.192A8.001 8.001 0 0 0 8 0Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/>
-                     </svg>
-                    <span class="sr-only">Embed map</span>
-                </button>
-                <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                         <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
-                         <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
-                     </svg>
-                    <span class="sr-only">Upload image</span>
-                </button>
-                <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                         <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z"/>
-                         <path d="M14.067 0H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.933-2ZM6.709 13.809a1 1 0 1 1-1.418 1.409l-2-2.013a1 1 0 0 1 0-1.412l2-2a1 1 0 0 1 1.414 1.414L5.412 12.5l1.297 1.309Zm6-.6-2 2.013a1 1 0 1 1-1.418-1.409l1.3-1.307-1.295-1.295a1 1 0 0 1 1.414-1.414l2 2a1 1 0 0 1-.001 1.408v.004Z"/>
-                     </svg>
-                     <span class="sr-only">Format code</span>
-                </button>
-                <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM13.5 6a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm-7 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm3.5 9.5A5.5 5.5 0 0 1 4.6 11h10.81A5.5 5.5 0 0 1 10 15.5Z"/>
-                     </svg>
-                    <span class="sr-only">Add emoji</span>
-                </button>
-            </div>
-            <div class="flex flex-wrap items-center space-x-1 rtl:space-x-reverse sm:ps-4">
-                <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 18">
-                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.5 3h9.563M9.5 9h9.563M9.5 15h9.563M1.5 13a2 2 0 1 1 3.321 1.5L1.5 17h5m-5-15 2-1v6m-2 0h4"/>
-                     </svg>
-                    <span class="sr-only">Add list</span>
-                </button>
-                <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                         <path d="M18 7.5h-.423l-.452-1.09.3-.3a1.5 1.5 0 0 0 0-2.121L16.01 2.575a1.5 1.5 0 0 0-2.121 0l-.3.3-1.089-.452V2A1.5 1.5 0 0 0 11 .5H9A1.5 1.5 0 0 0 7.5 2v.423l-1.09.452-.3-.3a1.5 1.5 0 0 0-2.121 0L2.576 3.99a1.5 1.5 0 0 0 0 2.121l.3.3L2.423 7.5H2A1.5 1.5 0 0 0 .5 9v2A1.5 1.5 0 0 0 2 12.5h.423l.452 1.09-.3.3a1.5 1.5 0 0 0 0 2.121l1.415 1.413a1.5 1.5 0 0 0 2.121 0l.3-.3 1.09.452V18A1.5 1.5 0 0 0 9 19.5h2a1.5 1.5 0 0 0 1.5-1.5v-.423l1.09-.452.3.3a1.5 1.5 0 0 0 2.121 0l1.415-1.414a1.5 1.5 0 0 0 0-2.121l-.3-.3.452-1.09H18a1.5 1.5 0 0 0 1.5-1.5V9A1.5 1.5 0 0 0 18 7.5Zm-8 6a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z"/>
-                     </svg>
-                    <span class="sr-only">Settings</span>
-                </button>
-                <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                         <path d="M18 2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2ZM2 18V7h6.7l.4-.409A4.309 4.309 0 0 1 15.753 7H18v11H2Z"/>
-                         <path d="M8.139 10.411 5.289 13.3A1 1 0 0 0 5 14v2a1 1 0 0 0 1 1h2a1 1 0 0 0 .7-.288l2.886-2.851-3.447-3.45ZM14 8a2.463 2.463 0 0 0-3.484 0l-.971.983 3.468 3.468.987-.971A2.463 2.463 0 0 0 14 8Z"/>
-                     </svg>
-                    <span class="sr-only">Timeline</span>
-                </button>
-                <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                         <path d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z"/>
-                         <path d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
-                     </svg>
-                    <span class="sr-only">Download</span>
-                </button>
-            </div>
-        </div>
-        <button type="button" data-tooltip-target="tooltip-fullscreen" class="p-2 text-gray-500 rounded cursor-pointer sm:ms-auto hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 19 19">
-                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 1h5m0 0v5m0-5-5 5M1.979 6V1H7m0 16.042H1.979V12M18 12v5.042h-5M13 12l5 5M2 1l5 5m0 6-5 5"/>
-             </svg>
-            <span class="sr-only">Full screen</span>
-        </button>
-        <div id="tooltip-fullscreen" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-            Show full screen
-            <div class="tooltip-arrow" data-popper-arrow></div>
-        </div>
-    </div>
-    <div class="px-4 py-2 bg-white rounded-b-lg dark:bg-gray-800">
-        <label for="editor" class="sr-only">Publish post</label>
-        <textarea id="editor" rows="8" class="block w-full px-0 text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" placeholder="Write an article..." required></textarea>
+     <!-- Email Address -->
+     <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8 ml-10">
+        <div class="mt-4 relative flex lg:inline-flex items-center justify-center rounded-xl mr-8">
+        <x-input-label for="প্রতিষ্ঠানের ইমেইল" :value="__('প্রতিষ্ঠানের ইমেইল')" />
+        <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="email" />
+        <x-input-error :messages="$errors->get('email')" class="mt-2" />
     </div>
 </div>
 
 
 
-    <div class="flex items-start mb-6">
-        <div class="flex items-center h-5">
-        <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required>
+
+
+
+<!-- Name -->
+<div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8 ml-10">
+    <div class="mt-4 relative flex lg:inline-flex items-center justify-center rounded-xl mr-8">
+    <x-input-label for="প্রতিষ্ঠানের নাম" :value="__('প্রতিষ্ঠানের নাম')" />
+    <x-text-input id="institutename" class="block mt-1 w-full" type="text" name="institutename" :value="old('institutename')" required autofocus autocomplete="institutename" />
+    <x-input-error :messages="$errors->get('institutename')" class="mt-2" />
+</div>
+</div>
+
+<div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8 ml-10">
+    <div class="mt-4 relative flex lg:inline-flex items-center justify-center rounded-xl mr-8">
+    <x-input-label for="প্রতিষ্ঠানটি কি ব্যক্তিনামের প্রতিষ্ঠান?" :value="__('প্রতিষ্ঠানটি কি ব্যক্তিনামের প্রতিষ্ঠান?')" />
+    <select id="institute_name_type" name="institute_name_type" :value="old('institute_name_type')" required autofocus autocomplete="institute_name_type" >
+        <option value="">Select</option>
+        <option id="option_1" value="1">হ্যাঁ</option>
+        <option id="option_2" value="2">না</option>
+       </select>
+
+    <!--input type="radio" id="html" name="institute_name_type" value="HTML">
+<label for="1">হ্যাঁ </label><br>
+<input type="radio" id="css" name="fav_language" value="CSS">
+<label-- for="css">না </label-->
+</div>
+ </div>
+  <!-- address -->
+
+  <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8 ml-10">
+    <div class="mt-4 relative flex lg:inline-flex items-center justify-center rounded-xl mr-8">
+            <x-input-label for="প্রতিষ্ঠানের ঠিকানা" :value="__('প্রতিষ্ঠানের ঠিকানা')" />
+            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus autocomplete="address" />
+            <x-input-error :messages="$errors->get('address')" class="mt-2" />
         </div>
-        <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</label>
-    </div>
-    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-</form>
+</div>
+
+ <!-- address -->
 
 
 
 
+                <!-- address -->
+                <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8 ml-10">
+                    <div class="mt-4 relative flex lg:inline-flex items-center justify-center rounded-xl mr-8">
+                        <x-input-label for="প্রতিষ্ঠানের ধরণ" :value="__('প্রতিষ্ঠানের ধরণ')" />
+                       <select id="institution_type" name="institution_type" :value="old('institution_type')" required autofocus autocomplete="institution_type" >
+                        <option value="">Select</option>
+                        <option id="option_1" value="1">বালক</option>
+                        <option id="option_2" value="2">বালিকা</option>
+                        <option id="option_3" value="3">সহশিক্ষা</option>
+                        <option id="option_4" value="4">মহিলা কলেজ</option>
+                       </select>
+                    </div>
+               </div>
+
+
+                               <!-- Name -->
+                               <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8 ml-10">
+                                <div class="mt-4 relative flex lg:inline-flex items-center justify-center rounded-xl mr-8">
+                                   <x-input-label for="প্রতিষ্ঠানের মাধ্যম : " :value="__('প্রতিষ্ঠানের মাধ্যম : ')" />
+                                   <select id="institute_version" name="institute_version" :value="old('institute_version')" required autofocus autocomplete="institute_version" >
+                                    <option value="">Select</option>
+                                    <option value="1">বাংলা ভার্সন</option>
+                                    <option value="1">ইংরেজি ভার্সন</option>
+                                    <option value="1">বাংলা ও ইংরেজি ভার্সন</option>
+                                   </select>
+                                </div>
+                           </div>
+
+
+                               <!-- Name -->
+                               <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8 ml-10">
+                                <div class="mt-4 relative flex lg:inline-flex items-center justify-center rounded-xl mr-8">
+                                   <x-input-label for="প্রার্থীত পর্যায় : " :value="__('প্রার্থীত পর্যায় : ')" />
+                                   <select id="institute_section" name="institute_section" :value="old('institute_section')" required autofocus autocomplete="institute_section" >
+                                    <option value="">Select</option>
+                                    <option value="1">নিম্ন মাধ্যমিক বিদ্যালয় (৬ষ্ঠ-৮ম শ্রেণি) </option>
+                                    <option value="1">মাধ্যমিক বিদ্যালয় (৯ম-১০ম শ্রেণি) </option>
+                                    <option value="1">উচ্চ মাধ্যমিক বিদ্যালয় ও মহাবিদ্যালয় (৬ষ্ঠ-১২শ শ্রেণি) </option>
+                                    <option value="1">উচ্চ মাধ্যমিক মহাবিদ্যালয় (১১শ-১২শ শ্রেণি)  </option>
+                                   </select>
+                                </div>
+                           </div>
+
+
+                               <!-- institute_area -->
+                               <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8 ml-10">
+                                <div class="mt-4 relative flex lg:inline-flex items-center justify-center rounded-xl mr-8">
+                                   <x-input-label for="শিক্ষা প্রতিষ্ঠানের অবস্থান : " :value="__('শিক্ষা প্রতিষ্ঠানের অবস্থান : ')" />
+                                   <select id="institute_area" name="institute_area" :value="old('institute_area')" required autofocus autocomplete="institute_area" >
+                                    <option value="">Select</option>
+                                    <option value="1">সিটি কর্পোরেশন এলাকায়</option>
+                                    <option value="1">পৌর এলাকায়</option>
+                                    <option value="1">মফস্বলে</option>
+                                   </select>
+                                </div>
+                           </div>
+
+                               <!-- institute_distance -->
+                               <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8 ml-10">
+                                <div class="mt-4 relative flex lg:inline-flex items-center justify-center rounded-xl mr-8">
+                                   <x-input-label for="বিদ্যমান প্রতিষ্ঠানস্মূহের নিকটতম দূরত্ব (কিলোমিটার): " :value="__('বিদ্যমান প্রতিষ্ঠানস্মূহের নিকটতম দূরত্ব (কিলোমিটার) : ')" />
+                                   <x-text-input id="institute_distance" class="block mt-1 w-full" type="text" name="institute_distance" :value="old('institute_distance')" required autofocus autocomplete="institute_distance" />
+                                   <x-input-label class="pl-8 block font-medium text-m text-gray-700" for="কিলোমিটার" :value="__('কিলোমিটার ')" />
+                                   <x-input-error :messages="$errors->get('institute_distance')" class="mt-2" />
+                                </div>
+                                <div class="mt-4 relative flex lg:inline-flex items-center justify-center rounded-xl mr-8">
+                                    <x-input-label class="pl-8" for="সনদ সংযুক্ত: " :value="__('সনদ সংযুক্ত: ')" />
+                                    <x-text-input id="institute_distance_attachment" class="block mt-1 w-full" type="file" name="institute_distance_attachment" :value="old('institute_distance_attachment')" />
+                                    <x-input-error :messages="$errors->get('institute_distance_attachment')" class="mt-2" />
+                                 </div>
+                           </div>
+                <!-- institute_population -->
+                               <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8 ml-10">
+                                <div class="mt-4 relative flex lg:inline-flex items-center justify-center rounded-xl mr-8">
+                                   <x-input-label for="জেলা/উপজেলা পরিসংখ্যান কর্মকর্তা কর্তৃক প্রদত্ত প্রতিষ্ঠান এলাকার জনসংখ্যা: " :value="__('জেলা/উপজেলা পরিসংখ্যান কর্মকর্তা কর্তৃক প্রদত্ত প্রতিষ্ঠান এলাকার জনসংখ্যা : ')" />
+                                   <x-text-input id="institute_population" class="block mt-1 w-full" type="text" name="institute_population" :value="old('institute_population')" required autofocus autocomplete="institute_population" />
+                                   <x-input-label  for="জন" :value="__('জন ')" />
+                                   <x-input-error :messages="$errors->get('institute_population')" class="mt-2" />
+                                </div>
+                                <div class="mt-4 relative flex lg:inline-flex items-center justify-center rounded-xl mr-8">
+                                    <x-input-label class="pl-8" for="সনদ সংযুক্ত: " :value="__('সনদ সংযুক্ত: ')" />
+                                    <x-text-input id="institute_population_attachment" class="block mt-1 w-full" type="file" name="institute_population_attachment" :value="old('institute_population_attachment')" />
+                                    <x-input-error :messages="$errors->get('institute_population_attachment')" class="mt-2" />
+                                 </div>
+                           </div>
+                            <!-- institute_population -->
+                            <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8 ml-10">
+                                <div class="mt-4 relative flex lg:inline-flex items-center justify-center rounded-xl mr-8">
+                                   <x-input-label for="জমির পরিমাণ (একর)
+                                   খতিয়ান/হালনাগাদ খাজনার তথ্য উল্লেখসহ: " :value="__('জমির পরিমাণ (একর)
+                                   খতিয়ান/হালনাগাদ খাজনার তথ্য উল্লেখসহ : ')" />
+                                   <x-text-input id="institute_land" class="block mt-1 w-full" type="text" name="institute_land" :value="old('institute_land')" required autofocus autocomplete="institute_land" />
+                                   <x-input-label  for="একর" :value="__('একর ')" />
+                                   <x-input-error :messages="$errors->get('institute_land')" class="mt-2" />
+                                </div>
+                                <div class="mt-4 relative flex lg:inline-flex items-center justify-center rounded-xl mr-8">
+                                    <x-input-label class="pl-8" for="সনদ সংযুক্ত: " :value="__('সনদ সংযুক্ত: ')" />
+                                    <x-text-input id="institute_land_attachment" class="block mt-1 w-full" type="file" name="institute_land_attachment" :value="old('institute_land_attachment')"  />
+                                    <x-input-error :messages="$errors->get('institute_land_attachment')" class="mt-2" />
+                                 </div>
+                           </div>
+ <div class="py-12">
+                                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                                    <table class="w-full bg-white">
+                                        <thead>
+                                            <tr class="border-b-2">
+                                                <th class="p-2 py-3 text-left">বিষয়</th>
+                                                <th class="p-2 py-3 text-left">তারিখ</th>
+                                                <th class="p-2 py-3 text-left">স্মারক (অনুলিপি সংযুক্ত)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>স্থাপনের অনুমতি (নিম্ন মাধ্যমিক)</td>
+                                            <td> <x-text-input id="establishing_institute_date" class="block mt-1 w-full" type="text" name="establishing_institute_date" :value="old('establishing_institute_date')" required autofocus autocomplete="establishing_institute_date" /></td>
+                                            <td><x-text-input id="establishing_institute_attachment" class="ml-5 block mt-1" type="file" name="establishing_institute_attachment" :value="old('establishing_institute_attachment')"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>নিম্ন মাধ্যমিক পর্যায়ে পাঠদানের অনুমতি</td>
+                                            <td> <x-text-input id="jsc_teachingpermission_date" class="block mt-1 w-full" type="text" name="jsc_teachingpermission_date" :value="old('jsc_teachingpermission_date')" required autofocus autocomplete="jsc_teachingpermission_date" /></td>
+                                            <td><x-text-input id="jsc_teachingpermission_attachment" class="ml-5 block mt-1" type="file" name="jsc_teachingpermission_attachment" :value="old('jsc_teachingpermission_attachment')" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>মাধ্যমিক পর্যায়ে পাঠদানের অনুমতি</td>
+                                            <td> <x-text-input id="ssc_teachingpermission_date" class="block mt-1 w-full" type="text" name="ssc_teachingpermission_date" :value="old('ssc_teachingpermission_date')" required autofocus autocomplete="ssc_teachingpermission_date" /></td>
+                                            <td><x-text-input id="ssc_teachingpermission_attachment" class="ml-5 block mt-1" type="file" name="ssc_teachingpermission_attachment" :value="old('ssc_teachingpermission_attachment')"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>উচ্চ মাধ্যমিক পর্যায়ে পাঠদানের অনুমতি</td>
+                                            <td> <x-text-input id="hsc_teachingpermission_date" class="block mt-1 w-full" type="text" name="hsc_teachingpermission_date" :value="old('hsc_teachingpermission_date')" required autofocus autocomplete="hsc_teachingpermission_date" /></td>
+                                            <td><x-text-input id="hsc_teachingpermission_attachment" class="ml-5 block mt-1" type="file" name="hsc_teachingpermission_attachment" :value="old('hsc_teachingpermission_attachment')" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>নিম্ন মাধ্যমিক পর্যায়ে একাডেমিক স্বীকৃতির অনুমতি</td>
+                                            <td> <x-text-input id="jsc_affiliation_date" class="block mt-1 w-full" type="text" name="jsc_affiliation_date" :value="old('jsc_affiliation_date')" required autofocus autocomplete="jsc_affiliation_date" /></td>
+                                            <td><x-text-input id="jsc_affiliation_attachment" class="ml-5 block mt-1" type="file" name="jsc_affiliation_attachment" :value="old('jsc_affiliation_attachment')"  /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>মাধ্যমিক পর্যায়ে একাডেমিক স্বীকৃতির অনুমতি</td>
+                                            <td> <x-text-input id="ssc_affiliation_date" class="block mt-1 w-full" type="text" name="ssc_affiliation_date" :value="old('ssc_affiliation_date')" required autofocus autocomplete="ssc_affiliation_date" /></td>
+                                            <td><x-text-input id="ssc_affiliation_attachment" class="ml-5 block mt-1" type="file" name="ssc_affiliation_attachment" :value="old('ssc_affiliation_attachment')" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>উচ্চমাধ্যমিক পর্যায়ে একাডেমিক স্বীকৃতির অনুমতি</td>
+                                            <td> <x-text-input id="hsc_affiliation_date" class="block mt-1 w-full" type="text" name="hsc_affiliation_date" :value="old('hsc_affiliation_date')" required autofocus autocomplete="hsc_affiliation_date" /></td>
+                                            <td><x-text-input id="hsc_affiliation_attachment" class="ml-5 block mt-1" type="file" name="hsc_affiliation_attachment" :value="old('hsc_affiliation_attachment')" /></td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                 </div>
+                           </div>
+
+
+
+
+
+
+
+
+                           <div class="flex items-center justify-center mt-4 mb-10">
+
+                           <x-primary-button class="ml-3 ">
+                            {{ __('Submit') }}
+                        </x-primary-button>
+                    </div>
+
+
+                </form>
 
             </div>
         </div>

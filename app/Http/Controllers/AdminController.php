@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use Illuminate\Support\Facades\DB;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -25,10 +26,11 @@ class AdminController extends Controller
 
     public function Dashboard()
     {
+        DB::table('sessions')->where('id', session()->getId())->update(['admin_id' => Auth::guard('admin')->user()->id]);
         return view('admin.index');
     }
 
-    public function Login(Request $request)
+    /*public function Login(Request $request)
     {
         // return view('admin.admin_login');
 
@@ -36,6 +38,24 @@ class AdminController extends Controller
         $check = $request->all();
         if (Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password'], 'status' => 1])) {
             return redirect()->route('admin.dashboard')->with('error', 'Admin Login Successfully');
+        } else {
+            return back()->with('error', 'Admin Login Failed');
+        }
+    }
+*/
+public function Login(Request $request)
+    {
+        // return view('admin.admin_login');
+
+        //dd($request->all());
+        $check = $request->all();
+        if (Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password'], 'status' => 1])) {
+                $admin = Admin::where('email', $request->email)->first();
+                $admin->session_id = session()->getId();
+                $admin->save();
+
+                return redirect()->route('admin.dashboard')->with('error', 'Admin Login Successfully');
+
         } else {
             return back()->with('error', 'Admin Login Failed');
         }
