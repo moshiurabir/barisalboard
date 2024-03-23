@@ -27,7 +27,7 @@
                         </div>
                       </div>
 @error('numberofstudent')
-<div class="alert alert-danger" role="alert">
+<div class="alert alert-danger col-sm-4" role="alert">
     {{ $message }}
    </div>
 @enderror

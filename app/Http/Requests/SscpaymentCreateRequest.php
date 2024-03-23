@@ -22,7 +22,7 @@ class SscpaymentCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'numberofstudent' => 'required',
+            'numberofstudent' => 'required|integer|digits_between:1,4',
         ];
 
     }
@@ -31,6 +31,8 @@ class SscpaymentCreateRequest extends FormRequest
     {
         return [
             'numberofstudent.required' => 'The number of student field is required.',
+            'numberofstudent.digits_between' => 'The number of student must be between 1 and 2000.',
+            'numberofstudent.integer' => 'The number of student must be an integer value.',
         ];
     }
 }
