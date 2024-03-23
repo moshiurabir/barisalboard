@@ -21,6 +21,9 @@ class CheckSingleSessionAdmin
                 DB::table('sessions')->where('id', '!=', $current_session)->where('admin_id', Auth::guard('admin')->user()->id)->delete();
             }
 
+
+
+
            /* $previous_session_admin = Auth::guard('admin')->user()->session_id;
             if ($previous_session_admin !== session()->getId()) {
                 Session::getHandler()->destroy($previous_session_admin);

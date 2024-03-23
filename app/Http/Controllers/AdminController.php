@@ -1,10 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Admin;
-use Illuminate\Support\Facades\DB;
 use Auth;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -26,6 +24,7 @@ class AdminController extends Controller
 
     public function Dashboard()
     {
+       // dd(Auth::guard('admin')->user()->id);
         DB::table('sessions')->where('id', session()->getId())->update(['admin_id' => Auth::guard('admin')->user()->id]);
         return view('admin.index');
     }
@@ -47,7 +46,7 @@ public function Login(Request $request)
     {
         // return view('admin.admin_login');
 
-        //dd($request->all());
+       // dd($request->all());
         $check = $request->all();
         if (Auth::guard('admin')->attempt(['email' => $check['email'], 'password' => $check['password'], 'status' => 1])) {
                 $admin = Admin::where('email', $request->email)->first();

@@ -10,7 +10,7 @@ class InstituteopenController extends Controller
 {
     public function create()
     {
-        return view('instituteopen.create');
+        return view('instituteopen.creates');
     }
 
     public function store(Request $request)
