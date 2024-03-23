@@ -26,6 +26,12 @@
                             aria-describedby="basic-default-phone" />
                         </div>
                       </div>
+@error('numberofstudent')
+<div class="alert alert-danger" role="alert">
+    {{ $message }}
+   </div>
+@enderror
+
 
                       <div class="row justify-content-end">
                         <div class="col-sm-10">

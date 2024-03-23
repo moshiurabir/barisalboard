@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ssc_payment;
 use Illuminate\Http\Request;
+use App\Http\Requests\SscpaymentCreateRequest;
 
 
 class SscPaymentController extends Controller
@@ -30,13 +31,13 @@ class SscPaymentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SscpaymentCreateRequest $request)
     {
        // dd($request->all());
 
-        $request->validate([
-            'numberofstudent' => 'required'
-        ]);
+      //  $request->validate([
+           // 'numberofstudent' => 'required'
+       // ]);
       //  $ssc_payment = new Ssc_payment;
        // $ssc_payment->numberofstudent = $request->numberofstudent;
 
