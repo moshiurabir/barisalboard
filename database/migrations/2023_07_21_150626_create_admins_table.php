@@ -75,6 +75,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('notes');
             $table->string('status')->default(0);
+            $table->string('created_by');
             $table->timestamps();
         });
     }

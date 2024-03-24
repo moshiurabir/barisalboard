@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('sonali_random');
             $table->string('check_bit');
             $table->string('status');
+            $table->string('created_by');
             $table->timestamps();
         });
     }

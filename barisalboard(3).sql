@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2024 at 11:21 AM
+-- Generation Time: Mar 24, 2024 at 07:24 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -54,6 +54,7 @@ CREATE TABLE `admins` (
   `session_id` varchar(100) DEFAULT NULL,
   `notes` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT '0',
+  `created_by` varchar(50) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -62,9 +63,9 @@ CREATE TABLE `admins` (
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id`, `name`, `subdomain`, `eiin`, `institutename`, `institute_established_date`, `email`, `email_verified_at`, `district`, `t_code`, `c_code`, `s_code`, `postoffice`, `upazilla`, `zilla`, `institution_type`, `institution_type_details`, `head_institution`, `mobile`, `head_institution_sign`, `template_isadmin`, `ssc_humanities_seat`, `password`, `session_id`, `notes`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', '', '102477', '', '0000-00-00', 'admin2@localhost.com', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '$2y$10$z53eKnEEJuzTp2Eqb4k5iOiooGsO4Llf9BXnO4t5e0TKvwbyYmPg2', NULL, '', '1', NULL, NULL),
-(3, 'Md Moshiur abir', NULL, '102598', NULL, NULL, 'admin@localhost.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$CgK4i.kEsbss3dhLdggdZexGJaURMd6FekozscbRvU6s/VEdjbbH.', 'RfAKAQSLTAgxAJEmKw2L4715bkBKDHzuss0151Vp', NULL, '1', '2023-07-22 16:01:59', '2024-03-23 04:20:02');
+INSERT INTO `admins` (`id`, `name`, `subdomain`, `eiin`, `institutename`, `institute_established_date`, `email`, `email_verified_at`, `district`, `t_code`, `c_code`, `s_code`, `postoffice`, `upazilla`, `zilla`, `institution_type`, `institution_type_details`, `head_institution`, `mobile`, `head_institution_sign`, `template_isadmin`, `ssc_humanities_seat`, `password`, `session_id`, `notes`, `status`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', '', '102477', '', '0000-00-00', 'admin2@localhost.com', NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '$2y$10$z53eKnEEJuzTp2Eqb4k5iOiooGsO4Llf9BXnO4t5e0TKvwbyYmPg2', NULL, '', '1', '', NULL, NULL),
+(3, 'Md Moshiur abir', NULL, '102598', NULL, NULL, 'admin@localhost.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$CgK4i.kEsbss3dhLdggdZexGJaURMd6FekozscbRvU6s/VEdjbbH.', 'uJzeXpUCjrSwix5YuxJvXMHyf3nMhvZpxFhnvU8S', NULL, '1', '', '2023-07-22 16:01:59', '2024-03-24 12:06:20');
 
 -- --------------------------------------------------------
 
@@ -389,14 +390,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`, `admin_id`) VALUES
-('4n4o2WM9kcuIccZ8WV6W6vsu73f3ZfGgtRXUR5SM', 3, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiZlVKa00wRlZpYWFUMkRFcnlkTWZzNzE4U1BBeE1SSmlmM1c4SnZNTCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI3OiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvbG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozO30=', 1711187304, NULL),
-('D6zjOqPj4K0Pqx183EFh5AVn7Y5HHAMxAmRO4qR0', 3, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiNnU4VG80dDg3V2xaVFdBY2MxTlVyVmVNbkZHM1VldUVXNjJEMjZxSSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI3OiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvbG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozO30=', 1711124090, NULL),
-('HCfB17o5Wbb9zahyV1A5swNyWWROyQGdfZNPgBCv', 3, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoidlBCdjhoekRSSW1IeDk3WjJjaTJIZlQ0cEVQU0prNktnbXpnUVhibCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI3OiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvbG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozO30=', 1711187190, NULL),
-('m5nxJWCjt7FzIBH9G3jSRPD4GZdMoJiW2RnDBO0S', 3, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiR2g4SlkzdVBGNmt3dldWczZOckNMcWFYOHp6WUVyN0xKd3N0bmtYaCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI3OiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvbG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozO30=', 1711187202, NULL),
-('nQN6a0ReEQlKyGpKRjqIiCspzai5RBkqQkqpMipj', 3, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiY2lDcTR5TXZ5VmptQnd2dFNqNXRYQXo1cHE2cjRJbWdvdHhRVEJyeSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9sb2dpbiI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjM7fQ==', 1711187166, NULL),
-('Nu7FXJzy8c5WSGrNz4Dw7TgroKoRGc4cpcq1f1Lu', 3, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoicURhM1NCZFdvZzZaeTllcml1MHhHSWoyRDZJUXlZU0x1MzNrM0FIayI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MzoidXJsIjthOjA6e31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozO30=', 1708790574, NULL),
-('ODHd14nJQkVhoK0Ruqr2nWkQ3XZfSv6bJDSV69kg', 3, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWUxvRnpHbGZzSzNJNVE5NFVQOWpqNFp5Y21NZWhLS2hFY2hiYkduVyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9sb2dpbiI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjM7fQ==', 1708791512, NULL),
-('RfAKAQSLTAgxAJEmKw2L4715bkBKDHzuss0151Vp', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUkpoeWtxaVhCOWFnaTlGUUh1VzRndEE1S3l3eUoyME56cjFzNjFqTyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9zc2NwYXltZW50Ijt9czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozO30=', 1711189218, 3);
+('uJzeXpUCjrSwix5YuxJvXMHyf3nMhvZpxFhnvU8S', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiZ2gwODJ1aXBPTFVsb2xXOVpOaXFrMzQyaG82ajFndWNqVmluT1JraCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9zc2NwYXltZW50Ijt9czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozO30=', 1711304650, 3);
 
 -- --------------------------------------------------------
 
@@ -413,9 +407,22 @@ CREATE TABLE `ssc_payments` (
   `sonali_random` varchar(255) DEFAULT NULL,
   `check_bit` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
+  `created_by` varchar(50) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `ssc_payments`
+--
+
+INSERT INTO `ssc_payments` (`id`, `eiin`, `institutename`, `numberofstudent`, `amount`, `sonali_random`, `check_bit`, `status`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, NULL, NULL, '30', NULL, NULL, NULL, NULL, NULL, '2024-03-24 12:18:43', '2024-03-24 12:18:43'),
+(2, NULL, NULL, '30', NULL, NULL, NULL, NULL, NULL, '2024-03-24 12:19:04', '2024-03-24 12:19:04'),
+(3, NULL, NULL, '30', NULL, NULL, NULL, NULL, NULL, '2024-03-24 12:20:06', '2024-03-24 12:20:06'),
+(4, NULL, NULL, '30', NULL, NULL, NULL, NULL, NULL, '2024-03-24 12:20:43', '2024-03-24 12:20:43'),
+(5, NULL, NULL, '50', NULL, NULL, NULL, NULL, '3', '2024-03-24 12:22:19', '2024-03-24 12:22:19'),
+(6, '102598', NULL, '70', NULL, NULL, NULL, NULL, '3', '2024-03-24 12:24:10', '2024-03-24 12:24:10');
 
 -- --------------------------------------------------------
 
@@ -601,7 +608,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `ssc_payments`
 --
 ALTER TABLE `ssc_payments`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
