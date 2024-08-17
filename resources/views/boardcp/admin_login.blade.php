@@ -1,153 +1,134 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  class="light-style customizer-hide"
-  dir="ltr"
-  data-theme="theme-default"
-  data-assets-path="{{ asset('assets/') }}"
-  data-template="vertical-menu-template-free"
->
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
+<html lang="en-US" dir="ltr">
 
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
     <title>Board Login Panel || Board of Intermediate & Secondary Education, Barishal </title>
 
-    <meta name="description" content="" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/assets/img/favicons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/assets/img/favicons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/assets/img/favicons/favicon-16x16.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/assets/img/favicons/favicon.ico') }}">
+    <link rel="manifest" href="{{ asset('assets/assets/img/favicons/manifest.json') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/assets/img/favicons/mstile-150x150.png') }}">
+    <meta name="theme-color" content="#ffffff">
+    <script src="{{ asset('assets/assets/js/config.js') }}"></script>
+    <script src="{{ asset('vendors/overlayscrollbars/OverlayScrollbars.min.js') }}"></script>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
 
-    <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/boxicons.css') }}" />
-
-    <!-- Core CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}" />
-
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
-
-    <!-- Page CSS -->
-    <!-- Page -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/page-auth.css') }}" />
-    <!-- Helpers -->
-    <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
-
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js') }} in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="{{ asset('assets/js/config.js') }}"></script>
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
+    <link href="{{ asset('vendors/overlayscrollbars/OverlayScrollbars.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/assets/css/theme-rtl.min.css') }}" rel="stylesheet" id="style-rtl">
+    <link href="{{ asset('assets/assets/css/theme.min.css') }}" rel="stylesheet" id="style-default">
+    <link href="{{ asset('assets/assets/css/user-rtl.min.css') }}" rel="stylesheet" id="user-style-rtl">
+    <link href="{{ asset('assets/assets/css/user.min.css') }}" rel="stylesheet" id="user-style-default">
+    <script>
+      var isRTL = JSON.parse(localStorage.getItem('isRTL'));
+      if (isRTL) {
+        var linkDefault = document.getElementById('style-default');
+        var userLinkDefault = document.getElementById('user-style-default');
+        linkDefault.setAttribute('disabled', true);
+        userLinkDefault.setAttribute('disabled', true);
+        document.querySelector('html').setAttribute('dir', 'rtl');
+      } else {
+        var linkRTL = document.getElementById('style-rtl');
+        var userLinkRTL = document.getElementById('user-style-rtl');
+        linkRTL.setAttribute('disabled', true);
+        userLinkRTL.setAttribute('disabled', true);
+      }
+    </script>
   </head>
 
+
   <body>
-    <!-- Content -->
 
-    <div class="container-xxl">
-      <div class="authentication-wrapper authentication-basic container-p-y">
-        <div class="authentication-inner">
-          <!-- Register -->
-          <div class="card">
-            <div class="card-body">
-              <!-- Logo -->
-              <div class="app-brand justify-content-center">
-                <a href="" class="app-brand-link gap-2">
-                  <span class="app-brand-logo demo">
-                    <img src="{{ asset('assets/img/logo/logo.gif') }}" alt="logo" width="90" height="80">
-                  </span>
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <div class="container" data-layout="container">
+        <script>
+          var isFluid = JSON.parse(localStorage.getItem('isFluid'));
+          if (isFluid) {
+            var container = document.querySelector('[data-layout]');
+            container.classList.remove('container');
+            container.classList.add('container-fluid');
+          }
+        </script>
+        <div class="row flex-center min-vh-100 py-6">
+          <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4"><a class="d-flex flex-center mb-4" href="{{ asset('') }}"><img class="me-2" src="{{ asset('assets/img/logo/logo.gif') }}" alt="" width="98" /><span class="font-sans-serif fw-bolder fs-5 d-inline-block">   </span></a>
+            <div class="card">
+              <div class="card-body p-4 p-sm-5">
+                <div class="row flex-between-center mb-2">
+                  <div class="col-auto">
+                    <h5>Log in</h5>
+                  </div>
+                  <div class="col-auto fs--1 text-600"><span class="mb-0 undefined">or</span> <span><a href="{{ asset('') }}">Create an account</a></span></div>
+                </div>
+                <form >
+                  <div class="mb-3">
+                    <input class="form-control" type="email" placeholder="Email address" />
+                  </div>
+                  <div class="mb-3">
+                    <input class="form-control" type="password" placeholder="Password" />
+                  </div>
+                  <div class="row flex-between-center">
+                    <div class="col-auto">
+                      <div class="form-check mb-0">
+                        <input class="form-check-input" type="checkbox" id="basic-checkbox" checked="checked" />
+                        <label class="form-check-label mb-0" for="basic-checkbox">Remember me</label>
+                      </div>
+                    </div>
+                    <div class="col-auto"><a class="fs--1" href="{{ asset('') }}">Forgot Password?</a></div>
+                  </div>
+                  <div class="mb-3">
+                    <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Log in</button>
+                  </div>
+                </form>
 
-                </a>
+
               </div>
-              <!-- /Logo -->
-              <h4 class="mb-2" align="center">Institute Admin Panel</h4>
-        @if(Session::has('error'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-           <strong>{{ Session::get('error') }}</strong>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        @endif
-
-
-
-
-              <form id="formAuthentication" class="mb-3" action="{{ route('login') }}" method="POST">
-                @csrf
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email or EIIN</label>
-                  <input type="email" class="form-control" name="email" placeholder="Enter your email or EIIN" />
-                </div>
-                <div class="mb-3 form-password-toggle">
-                  <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Password</label>
-                    <a href="auth-forgot-password-basic.html">
-                      <small>Forgot Password?</small>
-                    </a>
-                  </div>
-                  <div class="input-group input-group-merge">
-                    <input
-                      type="password"
-                      class="form-control"
-                      name="password"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password"
-                    />
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                    <label class="form-check-label" for="remember-me"> Remember Me </label>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
-                </div>
-              </form>
-
-
             </div>
           </div>
-          <!-- /Register -->
         </div>
       </div>
-    </div>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
 
-    <!-- / Content -->
 
-    <div class="buy-now">
 
-    </div>
 
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js') }} -->
-    <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
-    <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 
-    <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
-    <!-- endbuild -->
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="{{ asset('assets/vendors/popper/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/anchorjs/anchor.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/is/is.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/fontawesome/all.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/lodash/lodash.min.js') }}"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="{{ asset('assets/vendors/list.js/list.min.js') }}"></script>
+    <script src="{{ asset('assets/assets/js/theme.js') }}"></script>
 
-    <!-- Vendors JS -->
-
-    <!-- Main JS -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-
-    <!-- Page JS -->
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js') }}"></script>
   </body>
+
 </html>
